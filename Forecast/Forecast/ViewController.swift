@@ -18,9 +18,8 @@ class ViewController: UIViewController {
     //MARK: - Interactivity Methods
     @IBAction func searchButtonPressed(sender: UIBarButtonItem) {
         if networkManager.serverAvailable {
-            let address = "1 Infinite Loop, CA, USA"
+            let address = "5194 Celtic Drive, North Charleston, SC 29405"
             dataManager.geocodeAddress(address)
-            dataManager.getDataFromServer()
         } else {
             print("Search: Server Not Available")
         }
@@ -30,6 +29,7 @@ class ViewController: UIViewController {
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+//        dataManager.geocodeAddress("5194 Celtic Drive, North Charleston, SC 29405")
 
     }
 
