@@ -52,10 +52,10 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             newForecast.summary = tempDict.objectForKey("summary") as! String
             print(newForecast.summary)
             newForecast.icon = tempDict.objectForKey("icon") as! String
-            newForecast.precipProbability = tempDict.objectForKey("precipProbability") as! NSNumber
-            newForecast.temperature = tempDict.objectForKey("temperature") as! NSNumber
-            newForecast.humidity = tempDict.objectForKey("humidity") as! NSNumber
-            newForecast.windSpeed = tempDict.objectForKey("windSpeed") as! NSNumber
+            newForecast.precipProbability = String(tempDict.objectForKey("precipProbability") as! Double)
+            newForecast.temperature = String(tempDict.objectForKey("temperature") as! Double)
+            newForecast.humidity = String(tempDict.objectForKey("humidity") as! Double)
+            newForecast.windSpeed = String(tempDict.objectForKey("windSpeed") as! Double)
             
             self.forecastArray.append(newForecast)
             print(forecastArray)
@@ -67,8 +67,8 @@ class DataManager: NSObject, CLLocationManagerDelegate {
     }
     
     func getDataFromServer(coordinateString: String) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true // starts progress spinner
-        defer { // whenever you leave this method, it turns off the indicator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        defer {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
         let url = NSURL(string: "https://\(baseURLString)/forecast/\(apiKey)/\(coordinateString)")
@@ -79,6 +79,9 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             if data != nil {
                 print("Got Data")
                 self.parseWeatherData(data!)
+                dispatch_async(dispatch_get_main_queue()) { // set listener
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedDataFromServer", object: nil))
+                }
             } else {
                 print("No Data")
             }

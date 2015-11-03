@@ -11,9 +11,16 @@ import UIKit
 class ViewController: UIViewController, UISearchBarDelegate {
 
     //MARK: - Properties
-    @IBOutlet weak var searchBar :UISearchBar!
     var networkManager = NetworkManager.sharedInstance
     var dataManager = DataManager.sharedInstance
+    @IBOutlet weak var searchBar :UISearchBar!
+    @IBOutlet weak var temperatureLabel :UILabel!
+    @IBOutlet weak var locationLabel :UILabel!
+    @IBOutlet weak var summaryLabel :UILabel!
+    @IBOutlet weak var rainLabel :UILabel!
+    @IBOutlet weak var windLabel :UILabel!
+    @IBOutlet weak var iconImageView :UIImageView!
+    @IBOutlet weak var forecastView :UIView!
     
     
     //MARK: - Interactivity Methods        
@@ -28,10 +35,33 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    //MARK: - Display Methods
+    func displayCurrentForecast() {
+        print("Current Forecast")
+        forecastView.hidden = false
+        print("Forecast Array:\(dataManager.forecastArray)")
+        let forecast = dataManager.forecastArray[0]
+        temperatureLabel.text = forecast.temperature
+        locationLabel.text = searchBar.text
+        summaryLabel.text = forecast.summary
+        rainLabel.text = forecast.precipProbability
+        windLabel.text = forecast.windSpeed
+        forecastView .reloadInputViews()
+        
+        
+    }
+    
+    func newDataReceived() {
+        print("New Data Received")
+        displayCurrentForecast()
+    }
+    
+    
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 //        dataManager.geocodeAddress("5194 Celtic Drive, North Charleston, SC 29405")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil) // listens for fetch
 
     }
 
