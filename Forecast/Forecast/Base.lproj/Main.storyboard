@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Weather-->
@@ -16,16 +17,31 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="City, State" translatesAutoresizingMaskIntoConstraints="NO" id="to2-WP-9r2">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GGc-jm-uIa"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lQQ-nN-zii"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="to2-WP-9r2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5AM-TX-8Bh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="to2-WP-9r2" secondAttribute="trailing" constant="-20" id="Roo-oj-aja"/>
+                            <constraint firstItem="to2-WP-9r2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="bgI-bq-nbg"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather" id="Cbb-rP-xfI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="5Tr-Wo-XuJ">
-                            <connections>
-                                <action selector="searchButtonPressed:" destination="BYZ-38-t0r" id="qUd-hX-hSL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Weather" id="Cbb-rP-xfI"/>
+                    <connections>
+                        <outlet property="searchBar" destination="to2-WP-9r2" id="4U3-er-dGq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

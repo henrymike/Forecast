@@ -8,23 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     //MARK: - Properties
+    @IBOutlet weak var searchBar :UISearchBar!
     var networkManager = NetworkManager.sharedInstance
     var dataManager = DataManager.sharedInstance
     
     
-    //MARK: - Interactivity Methods
-    @IBAction func searchButtonPressed(sender: UIBarButtonItem) {
+    //MARK: - Interactivity Methods        
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if networkManager.serverAvailable {
-            let address = "5194 Celtic Drive, North Charleston, SC 29405"
+            let address = searchBar.text!
+            searchBar.resignFirstResponder()
+//            let address = "5194 Celtic Drive, North Charleston, SC 29405"
             dataManager.geocodeAddress(address)
         } else {
             print("Search: Server Not Available")
         }
     }
-    
     
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
