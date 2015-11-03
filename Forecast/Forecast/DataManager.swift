@@ -14,15 +14,29 @@ class DataManager: NSObject {
     static let sharedInstance = DataManager()
     var baseURLString = "api.forecast.io"
     var apiKey = "33db1afe1d846e9f1b20d8b76be7dbfd"
-    var weatherArray = [String]()
+    var forecastArray = [Weather]()
     
+    
+
     
     //MARK: - Fetch Data Methods
     func parseWeatherData(data: NSData) {
         do {
             let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
-            let tempDictArray = jsonResult as! NSDictionary
-            print(tempDictArray)
+            let tempDict = jsonResult.objectForKey("currently") as! NSDictionary
+            print(tempDict)
+            let newForecast = Weather()
+            newForecast.summary = tempDict.objectForKey("summary") as! String
+            print(newForecast.summary)
+            newForecast.icon = tempDict.objectForKey("icon") as! String
+            newForecast.precipProbability = tempDict.objectForKey("precipProbability") as! NSNumber
+            newForecast.temperature = tempDict.objectForKey("temperature") as! NSNumber
+            newForecast.humidity = tempDict.objectForKey("humidity") as! NSNumber
+            newForecast.windSpeed = tempDict.objectForKey("windSpeed") as! NSNumber
+            
+            self.forecastArray.append(newForecast)
+            print(forecastArray)
+            print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")
 
         } catch {
             print("JSON Parsing Error")

@@ -9,5 +9,12 @@
 import UIKit
 
 class Weather: NSObject {
+    
+    var summary :String!
+    var icon :String!
+    var precipProbability :NSNumber!
+    var temperature :NSNumber!
+    var humidity :NSNumber!
+    var windSpeed :NSNumber!
 
 }
