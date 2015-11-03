@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class DataManager: NSObject {
+class DataManager: NSObject, CLLocationManagerDelegate {
 
     //MARK: - Properties
     static let sharedInstance = DataManager()
@@ -17,7 +18,27 @@ class DataManager: NSObject {
     var forecastArray = [Weather]()
     
     
-
+    //MARK: - Geocoding Methods
+    
+    func convertCoordinateToString(coordinate: CLLocationCoordinate2D) -> String {
+        return "\(coordinate.latitude),\(coordinate.longitude)"
+    }
+    
+    func geocodeAddress(address: String) {
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(address, completionHandler: {
+            (placemarks, error) -> Void in
+            if((error) != nil){
+                print("Error", error)
+            }
+            if let placemark = placemarks?.first {
+                let coordinates = placemark.location!.coordinate
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "gotCoordinates", object: nil, userInfo: ["coordinates":self.convertCoordinateToString(coordinates)]))
+            }
+        })
+    }
+    
     
     //MARK: - Fetch Data Methods
     func parseWeatherData(data: NSData) {

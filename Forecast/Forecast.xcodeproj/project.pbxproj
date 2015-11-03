@@ -16,6 +16,7 @@
 		559A2F291BE92DFE00D45FD4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */; };
 		559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */; };
 		559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2D1BE937DC00D45FD4 /* Weather.swift */; };
+		559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A2F331BE9450000D45FD4 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		559A2F2D1BE937DC00D45FD4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		559A2F331BE9450000D45FD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +51,7 @@
 		559A2F061BE92D2900D45FD4 = {
 			isa = PBXGroup;
 			children = (
+				559A2F331BE9450000D45FD4 /* CoreLocation.framework */,
 				559A2F111BE92D2900D45FD4 /* Forecast */,
 				559A2F101BE92D2900D45FD4 /* Products */,
 			);

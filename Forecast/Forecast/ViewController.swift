@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     //MARK: - Interactivity Methods
     @IBAction func searchButtonPressed(sender: UIBarButtonItem) {
         if networkManager.serverAvailable {
+            let address = "1 Infinite Loop, CA, USA"
+            dataManager.geocodeAddress(address)
             dataManager.getDataFromServer()
         } else {
             print("Search: Server Not Available")
