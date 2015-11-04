@@ -48,6 +48,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
             let tempDict = jsonResult.objectForKey("currently") as! NSDictionary
             print(tempDict)
+            self.forecastArray.removeAll()
             let newForecast = Weather()
             newForecast.summary = tempDict.objectForKey("summary") as! String
             print(newForecast.summary)

@@ -41,11 +41,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         forecastView.hidden = false
         print("Forecast Array:\(dataManager.forecastArray)")
         let forecast = dataManager.forecastArray[0]
-        temperatureLabel.text = forecast.temperature
+        temperatureLabel.text = "\(forecast.temperature)°"
         locationLabel.text = searchBar.text
         summaryLabel.text = forecast.summary
-        rainLabel.text = forecast.precipProbability
-        windLabel.text = forecast.windSpeed
+        rainLabel.text = "Chance of Rain: \(forecast.precipProbability)%"
+        windLabel.text = "Wind: \(forecast.windSpeed)"
         forecastView .reloadInputViews()
         
         
