@@ -41,11 +41,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         forecastView.hidden = false
         print("Forecast Array:\(dataManager.forecastArray)")
         let forecast = dataManager.forecastArray[0]
-        temperatureLabel.text = "\(forecast.temperature)°"
+        temperatureLabel.text = "\(String (format: "%.0f", forecast.temperature))°"
         locationLabel.text = searchBar.text
         summaryLabel.text = forecast.summary
-        rainLabel.text = "Rain: \(forecast.precipProbability)%"
-        windLabel.text = "Wind: \(forecast.windSpeed)mph"
+        rainLabel.text = "Rain: \(String (format: "%.0f", forecast.precipProbability*100))%"
+        windLabel.text = "Wind: \(String (format: "%.0f", forecast.windSpeed))mph"
         iconImageView.image = UIImage(named: "\(forecast.icon)")
         forecastView .reloadInputViews()
         

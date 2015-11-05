@@ -12,9 +12,9 @@ class Weather: NSObject {
     
     var summary :String!
     var icon :String!
-    var precipProbability :String!
-    var temperature :String!
-    var humidity :String!
-    var windSpeed :String!
+    var precipProbability :Double!
+    var temperature :Double!
+    var humidity :Double!
+    var windSpeed :Double!
 
 }
