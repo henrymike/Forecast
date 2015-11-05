@@ -44,8 +44,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         temperatureLabel.text = "\(forecast.temperature)°"
         locationLabel.text = searchBar.text
         summaryLabel.text = forecast.summary
-        rainLabel.text = "Chance of Rain: \(forecast.precipProbability)%"
-        windLabel.text = "Wind: \(forecast.windSpeed)"
+        rainLabel.text = "Rain: \(forecast.precipProbability)%"
+        windLabel.text = "Wind: \(forecast.windSpeed)mph"
         iconImageView.image = UIImage(named: "\(forecast.icon)")
         forecastView .reloadInputViews()
         

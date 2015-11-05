@@ -32,48 +32,94 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liL-5P-SVj">
                                 <rect key="frame" x="-1" y="108" width="601" height="492"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tK-yu2">
-                                        <rect key="frame" x="21" y="34" width="240" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tK-yu2">
+                                        <rect key="frame" x="8" y="28" width="585" height="128"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="h6k-oe-YYO"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEMP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-6Y-j7i">
-                                        <rect key="frame" x="298" y="34" width="153" height="76"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-6Y-j7i">
+                                        <rect key="frame" x="8" y="177" width="585" height="140"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="id2-nH-Vls"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="98"/>
+                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1P-hX-rqi">
-                                        <rect key="frame" x="21" y="181" width="240" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charleston, SC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1P-hX-rqi">
+                                        <rect key="frame" x="8" y="319" width="585" height="56"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="5lL-fJ-8Ci"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="28"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Rb-bSq">
-                                        <rect key="frame" x="162" y="210" width="123" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Rb-bSq">
+                                        <rect key="frame" x="322" y="382" width="271" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="FLK-Ch-MF0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="17"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-CD-fn7">
-                                        <rect key="frame" x="20" y="239" width="274" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-CD-fn7">
+                                        <rect key="frame" x="8" y="382" width="278" height="21"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="I6h-eh-de4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="17"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zI-Zh-u9m">
-                                        <rect key="frame" x="21" y="210" width="122" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zI-Zh-u9m">
+                                        <rect key="frame" x="8" y="278" width="585" height="34"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="ONp-Rp-KNd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="26"/>
+                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.027450980392156862" green="0.35686274509803922" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="f1P-hX-rqi" firstAttribute="top" secondItem="Bie-6Y-j7i" secondAttribute="bottom" constant="-7" id="06c-WJ-uMx"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Em-Rb-bSq" secondAttribute="trailing" constant="8" id="0Xc-jM-Qel"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Em-Rb-bSq" secondAttribute="bottom" constant="89" id="2BH-KM-Guu"/>
+                                    <constraint firstAttribute="trailing" secondItem="7zI-Zh-u9m" secondAttribute="trailing" constant="8" id="3IX-fb-i7Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="x78-tK-yu2" secondAttribute="trailing" constant="8" id="3eU-iP-udM"/>
+                                    <constraint firstItem="7zI-Zh-u9m" firstAttribute="top" secondItem="f1P-hX-rqi" secondAttribute="bottom" constant="-13" id="4DR-qG-MVw"/>
+                                    <constraint firstItem="Bie-6Y-j7i" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="7Gv-gg-eLi"/>
+                                    <constraint firstItem="7zI-Zh-u9m" firstAttribute="top" secondItem="Bie-6Y-j7i" secondAttribute="bottom" constant="-39" id="Ffv-1j-r5Y"/>
+                                    <constraint firstItem="x78-tK-yu2" firstAttribute="top" secondItem="liL-5P-SVj" secondAttribute="top" constant="28" id="HFv-zt-e5y"/>
+                                    <constraint firstAttribute="trailing" secondItem="f1P-hX-rqi" secondAttribute="trailing" constant="8" id="KTa-CL-Cyl"/>
+                                    <constraint firstItem="f1P-hX-rqi" firstAttribute="top" secondItem="7zI-Zh-u9m" secondAttribute="bottom" constant="7" id="MIg-wu-xon"/>
+                                    <constraint firstItem="Bie-6Y-j7i" firstAttribute="top" secondItem="x78-tK-yu2" secondAttribute="bottom" constant="21" id="OA0-Iw-eeZ"/>
+                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="width" secondItem="O3j-CD-fn7" secondAttribute="width" constant="-7" id="RRM-rS-I4n"/>
+                                    <constraint firstAttribute="bottom" secondItem="O3j-CD-fn7" secondAttribute="bottom" constant="89" id="Y8P-pZ-CLj"/>
+                                    <constraint firstItem="f1P-hX-rqi" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="ZN6-22-j21"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bie-6Y-j7i" secondAttribute="trailing" constant="8" id="dnF-GC-9jU"/>
+                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="leading" secondItem="O3j-CD-fn7" secondAttribute="trailing" constant="36" id="guV-f9-Azs"/>
+                                    <constraint firstItem="x78-tK-yu2" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="jdm-la-J55"/>
+                                    <constraint firstItem="O3j-CD-fn7" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="lkD-gu-1R4"/>
+                                    <constraint firstItem="7zI-Zh-u9m" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="sX4-Jh-U4b"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4DR-qG-MVw"/>
+                                        <exclude reference="06c-WJ-uMx"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <animations/>
@@ -124,4 +170,7 @@
             <point key="canvasLocation" x="345" y="236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cloudy" width="147" height="117"/>
+    </resources>
 </document>
