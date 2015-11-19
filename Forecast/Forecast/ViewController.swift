@@ -13,6 +13,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     //MARK: - Properties
     var networkManager = NetworkManager.sharedInstance
     var dataManager = DataManager.sharedInstance
+    var locManager = LocationManager.sharedInstance
     @IBOutlet weak var searchBar :UISearchBar!
     @IBOutlet weak var temperatureLabel :UILabel!
     @IBOutlet weak var locationLabel :UILabel!
@@ -28,8 +29,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         if networkManager.serverAvailable {
             let address = searchBar.text!
             searchBar.resignFirstResponder()
-//            let address = "5194 Celtic Drive, North Charleston, SC 29405"
-            dataManager.geocodeAddress(address)
+            locManager.geocodeAddress(address)
         } else {
             print("Search: Server Not Available")
         }
@@ -48,8 +48,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         windLabel.text = "Wind: \(String (format: "%.0f", forecast.windSpeed))mph"
         iconImageView.image = UIImage(named: "\(forecast.icon)")
         forecastView .reloadInputViews()
-        
-        
     }
     
     func newDataReceived() {
@@ -61,7 +59,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        dataManager.geocodeAddress("5194 Celtic Drive, North Charleston, SC 29405")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil) // listens for fetch
 
     }
@@ -70,7 +67,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         super.didReceiveMemoryWarning()
 
     }
-
-
+    
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jkS-pt-XZd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jkS-pt-XZd">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -70,7 +70,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-CD-fn7">
-                                        <rect key="frame" x="8" y="382" width="278" height="21"/>
+                                        <rect key="frame" x="8" y="382" width="254" height="21"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="I6h-eh-de4"/>
@@ -105,11 +105,11 @@
                                     <constraint firstAttribute="trailing" secondItem="f1P-hX-rqi" secondAttribute="trailing" constant="8" id="KTa-CL-Cyl"/>
                                     <constraint firstItem="f1P-hX-rqi" firstAttribute="top" secondItem="7zI-Zh-u9m" secondAttribute="bottom" constant="7" id="MIg-wu-xon"/>
                                     <constraint firstItem="Bie-6Y-j7i" firstAttribute="top" secondItem="x78-tK-yu2" secondAttribute="bottom" constant="21" id="OA0-Iw-eeZ"/>
-                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="width" secondItem="O3j-CD-fn7" secondAttribute="width" constant="-7" id="RRM-rS-I4n"/>
+                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="width" secondItem="O3j-CD-fn7" secondAttribute="width" constant="17" id="RRM-rS-I4n"/>
                                     <constraint firstAttribute="bottom" secondItem="O3j-CD-fn7" secondAttribute="bottom" constant="89" id="Y8P-pZ-CLj"/>
                                     <constraint firstItem="f1P-hX-rqi" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="ZN6-22-j21"/>
                                     <constraint firstAttribute="trailing" secondItem="Bie-6Y-j7i" secondAttribute="trailing" constant="8" id="dnF-GC-9jU"/>
-                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="leading" secondItem="O3j-CD-fn7" secondAttribute="trailing" constant="36" id="guV-f9-Azs"/>
+                                    <constraint firstItem="6Em-Rb-bSq" firstAttribute="leading" secondItem="O3j-CD-fn7" secondAttribute="trailing" constant="60" id="guV-f9-Azs"/>
                                     <constraint firstItem="x78-tK-yu2" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="jdm-la-J55"/>
                                     <constraint firstItem="O3j-CD-fn7" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="lkD-gu-1R4"/>
                                     <constraint firstItem="7zI-Zh-u9m" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="sX4-Jh-U4b"/>

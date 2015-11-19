@@ -18,30 +18,6 @@ class DataManager: NSObject, CLLocationManagerDelegate {
     var forecastArray = [Weather]()
     
     
-    //MARK: - Geocoding Methods
-    
-    func convertCoordinateToString(coordinate: CLLocationCoordinate2D) -> String {
-        print("\(coordinate.latitude),\(coordinate.longitude)")
-        return "\(coordinate.latitude),\(coordinate.longitude)"
-    }
-    
-    func geocodeAddress(address: String) {
-        let geocoder = CLGeocoder()
-        
-        geocoder.geocodeAddressString(address, completionHandler: {
-            (placemarks, error) -> Void in
-            if((error) != nil){
-                print("Error", error)
-            }
-            if let placemark = placemarks?.first {
-                let coordinates = placemark.location!.coordinate
-                self.getDataFromServer(self.convertCoordinateToString(coordinates))
-                
-            }
-        })
-    }
-    
-    
     //MARK: - Fetch Data Methods
     func parseWeatherData(data: NSData) {
         do {
@@ -80,7 +56,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             if data != nil {
                 print("Got Data")
                 self.parseWeatherData(data!)
-                dispatch_async(dispatch_get_main_queue()) { // set listener
+                dispatch_async(dispatch_get_main_queue()) {
                     NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedDataFromServer", object: nil))
                 }
             } else {
