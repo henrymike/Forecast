@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -39,6 +40,13 @@ class ViewController: UIViewController, UISearchBarDelegate {
         searchBar.text = ""
         searchBar.placeholder = "Current Location"
         locManager.setUpLocationMonitoring()
+    }
+    
+    @IBAction func creditsButtonPressed(sender: UIButton) {
+        if let url = NSURL(string: "http://forecast.io") {
+            let viewcont = SFSafariViewController(URL: url)
+            presentViewController(viewcont, animated: true, completion: nil)
+        }
     }
     
     

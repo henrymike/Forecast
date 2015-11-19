@@ -89,6 +89,20 @@
                                         <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX9-Ij-6pD">
+                                        <rect key="frame" x="250" y="464" width="101" height="20"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="kP9-JR-3Sp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="11"/>
+                                        <state key="normal" title="Powered by Forecast">
+                                            <color key="titleColor" red="0.32549019610000002" green="0.65490196079999996" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="creditsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3A-pZ-z66"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.027450980392156862" green="0.35686274509803922" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,7 +122,9 @@
                                     <constraint firstItem="6Em-Rb-bSq" firstAttribute="width" secondItem="O3j-CD-fn7" secondAttribute="width" constant="17" id="RRM-rS-I4n"/>
                                     <constraint firstAttribute="bottom" secondItem="O3j-CD-fn7" secondAttribute="bottom" constant="89" id="Y8P-pZ-CLj"/>
                                     <constraint firstItem="f1P-hX-rqi" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="ZN6-22-j21"/>
+                                    <constraint firstAttribute="bottom" secondItem="YX9-Ij-6pD" secondAttribute="bottom" constant="8" id="d26-8p-yTZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Bie-6Y-j7i" secondAttribute="trailing" constant="8" id="dnF-GC-9jU"/>
+                                    <constraint firstItem="YX9-Ij-6pD" firstAttribute="centerX" secondItem="liL-5P-SVj" secondAttribute="centerX" id="fox-fX-i5N"/>
                                     <constraint firstItem="6Em-Rb-bSq" firstAttribute="leading" secondItem="O3j-CD-fn7" secondAttribute="trailing" constant="60" id="guV-f9-Azs"/>
                                     <constraint firstItem="x78-tK-yu2" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="jdm-la-J55"/>
                                     <constraint firstItem="O3j-CD-fn7" firstAttribute="leading" secondItem="liL-5P-SVj" secondAttribute="leading" constant="8" id="lkD-gu-1R4"/>
