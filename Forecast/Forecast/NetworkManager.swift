@@ -28,8 +28,6 @@ class NetworkManager: NSObject {
         super.init()
         print("Starting Network Manager")
         serverReach = Reachability(hostName: "www.google.com")
-//        let dataManager = DataManager.sharedInstance
-//        serverReach = Reachability(hostName: dataManager.baseURLString)
         serverReach?.startNotifier()
         NSNotificationCenter.defaultCenter() .addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
     }

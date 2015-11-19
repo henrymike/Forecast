@@ -15,7 +15,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
     static let sharedInstance = DataManager()
     var baseURLString = "api.forecast.io"
     var apiKey = "33db1afe1d846e9f1b20d8b76be7dbfd"
-    var forecastArray = [Weather]()
+    var forecast = Weather()
     
     
     //MARK: - Fetch Data Methods
@@ -24,7 +24,6 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
             let tempDict = jsonResult.objectForKey("currently") as! NSDictionary
             print(tempDict)
-            self.forecastArray.removeAll()
             let newForecast = Weather()
             newForecast.summary = tempDict.objectForKey("summary") as! String
             print(newForecast.summary)
@@ -34,8 +33,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             newForecast.humidity = Double(tempDict.objectForKey("humidity") as! Double)
             newForecast.windSpeed = Double(tempDict.objectForKey("windSpeed") as! Double)
             
-            self.forecastArray.append(newForecast)
-            print(forecastArray)
+            forecast = newForecast
             print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")
 
         } catch {
@@ -49,7 +47,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
         let url = NSURL(string: "https://\(baseURLString)/forecast/\(apiKey)/\(coordinateString)")
-        print("Search URL:\(url)")
+        print("Search URL:\(url!)")
         let urlRequest = NSURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 30.0)
         let urlSession = NSURLSession.sharedSession()
         let task = urlSession.dataTaskWithRequest(urlRequest) { (data, response, error) -> Void in

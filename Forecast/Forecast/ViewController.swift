@@ -39,14 +39,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
     func displayCurrentForecast() {
         print("Current Forecast")
         forecastView.hidden = false
-        print("Forecast Array:\(dataManager.forecastArray)")
-        let forecast = dataManager.forecastArray[0]
-        temperatureLabel.text = "\(String (format: "%.0f", forecast.temperature))°"
-        locationLabel.text = searchBar.text
-        summaryLabel.text = forecast.summary
-        rainLabel.text = "Rain: \(String (format: "%.0f", forecast.precipProbability*100))%"
-        windLabel.text = "Wind: \(String (format: "%.0f", forecast.windSpeed))mph"
-        iconImageView.image = UIImage(named: "\(forecast.icon)")
+        temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
+        print("Location Label: \(locManager.currentLocation)")
+        locationLabel.text = String(locManager.currentLocation)
+        summaryLabel.text = dataManager.forecast.summary
+        rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
+        windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
+        iconImageView.image = UIImage(named: "\(dataManager.forecast.icon)")
+
         forecastView .reloadInputViews()
     }
     
@@ -55,11 +55,20 @@ class ViewController: UIViewController, UISearchBarDelegate {
         displayCurrentForecast()
     }
     
+    func newLocationReceived() {
+        print("User Location Received")
+        dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
+    }
+    
     
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil) // listens for fetch
+        locManager.setUpLocationMonitoring()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocationReceived", name: "newUserLocationReceived", object: nil)
 
     }
 
