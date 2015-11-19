@@ -23,12 +23,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func setUpLocationMonitoring() {
         locManager.delegate = self
-        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.desiredAccuracy = kCLLocationAccuracyKilometer
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 print("Location authorized")
-                locManager.startUpdatingLocation()
+                locManager.requestLocation()
             case .Denied, .Restricted:
                 print("Location services disabled/restricted")
             case .NotDetermined:
@@ -49,7 +49,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocationCoordinates = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
-        locManager.stopUpdatingLocation()
         
         let location = CLLocation(latitude: userLocationCoordinates.latitude, longitude: userLocationCoordinates.longitude)
         
@@ -63,15 +62,20 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 let currentLoc = placemarks![0]
                 print("Current Location: \(currentLoc.locality!)")
                 self.currentLocation = String(currentLoc.locality!)
+                
+                dispatch_async(dispatch_get_main_queue(), { ()
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "newUserLocationReceived", object: nil))
+                })
             }
             else {
                 print("Problem with the geocoded data")
             }
         })
-        
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "newUserLocationReceived", object: nil))
     }
     
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: \(error)")
+    }
     
     func convertCoordinateToString(coordinate: CLLocationCoordinate2D) -> String {
         print("Coordinate to String: \(coordinate.latitude),\(coordinate.longitude)")

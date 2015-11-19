@@ -35,13 +35,25 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    @IBAction func reloadCurrentWeather(sender: UIBarButtonItem) {
+        searchBar.text = ""
+        searchBar.placeholder = "Current Location"
+        locManager.setUpLocationMonitoring()
+    }
+    
+    
     //MARK: - Display Methods
     func displayCurrentForecast() {
         print("Current Forecast")
         forecastView.hidden = false
         temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
         print("Location Label: \(locManager.currentLocation)")
-        locationLabel.text = String(locManager.currentLocation)
+        
+        if searchBar.text?.characters.count != 0 {
+            locationLabel.text = searchBar.text
+        } else {
+            locationLabel.text = String(locManager.currentLocation)
+        }
         summaryLabel.text = dataManager.forecast.summary
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
         windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
@@ -59,7 +71,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         print("User Location Received")
         dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
     }
-    
+
     
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -69,8 +81,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocationReceived", name: "newUserLocationReceived", object: nil)
-
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
