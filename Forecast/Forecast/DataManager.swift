@@ -28,10 +28,10 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             newForecast.summary = tempDict.objectForKey("summary") as! String
             print(newForecast.summary)
             newForecast.icon = tempDict.objectForKey("icon") as! String
-            newForecast.precipProbability = Double(tempDict.objectForKey("precipProbability") as! Double)
-            newForecast.temperature = Double(tempDict.objectForKey("temperature") as! Double)
-            newForecast.humidity = Double(tempDict.objectForKey("humidity") as! Double)
-            newForecast.windSpeed = Double(tempDict.objectForKey("windSpeed") as! Double)
+            newForecast.precipProbability = (tempDict.objectForKey("precipProbability") as! Double)
+            newForecast.temperature = (tempDict.objectForKey("temperature") as! Double)
+            newForecast.humidity = (tempDict.objectForKey("humidity") as! Double)
+            newForecast.windSpeed = (tempDict.objectForKey("windSpeed") as! Double)
             
             forecast = newForecast
             print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")

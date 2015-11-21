@@ -17,6 +17,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var locManager = CLLocationManager()
     var userLocationCoordinates = CLLocationCoordinate2D()
     var currentLocation = ""
+    var geocodedLocation = ""
     
     
     //MARK: - Permission Methods
