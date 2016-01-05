@@ -18,6 +18,7 @@
 		559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2D1BE937DC00D45FD4 /* Weather.swift */; };
 		559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A2F331BE9450000D45FD4 /* CoreLocation.framework */; };
 		55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA04661BFE54E9009DDBD7 /* LocManager.swift */; };
+		55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB514E1C3C41E900E99A3B /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		559A2F2D1BE937DC00D45FD4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		559A2F331BE9450000D45FD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		55CA04661BFE54E9009DDBD7 /* LocManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocManager.swift; sourceTree = "<group>"; };
+		55FB514E1C3C41E900E99A3B /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */,
 				55CA04661BFE54E9009DDBD7 /* LocManager.swift */,
+				55FB514E1C3C41E900E99A3B /* AlertManager.swift */,
 				559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */,
 				559A2F2D1BE937DC00D45FD4 /* Weather.swift */,
 				559A2F251BE92DB000D45FD4 /* Reachability.h */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */,
 				559A2F291BE92DFE00D45FD4 /* NetworkManager.swift in Sources */,
 				559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */,
 				559A2F151BE92D2900D45FD4 /* ViewController.swift in Sources */,

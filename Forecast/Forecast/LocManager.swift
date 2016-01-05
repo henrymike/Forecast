@@ -15,6 +15,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var dataManager = DataManager.sharedInstance
     var locManager = CLLocationManager()
+    var alertManager = AlertManager.sharedInstance
     var userLocationCoordinates = CLLocationCoordinate2D()
     var currentLocation = ""
     var geocodedLocation = ""
@@ -32,17 +33,19 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 locManager.requestLocation()
             case .Denied, .Restricted:
                 //TODO: Add error message that Location services are disabled; please turn them back on
+                alertManager.locServicesAlert()
                 print("Location services disabled/restricted")
             case .NotDetermined:
                 //TODO: Add error message that Location services are disabled; please turn them back on
+                alertManager.locServicesAlert()
                 print("Turn location services on in Settings")
                 if (locManager.respondsToSelector("requestWhenInUseAuthorization")) {
                     locManager.requestWhenInUseAuthorization()
                 }
-                
             }
         } else {
             //TODO: Add error message that Location services are disabled; please turn them back on
+            alertManager.locServicesAlert()
             print("Turn on location services in Settings!")
         }
     }
