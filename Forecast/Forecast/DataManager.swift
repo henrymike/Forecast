@@ -13,6 +13,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
 
     //MARK: - Properties
     static let sharedInstance = DataManager()
+    var alertManager = AlertManager.sharedInstance
     var baseURLString = "api.forecast.io"
     var apiKey = "33db1afe1d846e9f1b20d8b76be7dbfd"
     var forecast = Weather()
@@ -38,6 +39,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
 
         } catch {
             //TODO: Add error message that server is not available
+            alertManager.dataAlert()
             print("JSON Parsing Error")
         }
     }
@@ -60,6 +62,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
                 }
             } else {
                 //TODO: Add error message that server is not available
+                self.alertManager.dataAlert()
                 print("No Data")
             }
         }

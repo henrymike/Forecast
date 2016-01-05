@@ -9,8 +9,9 @@
 import UIKit
 
 class NetworkManager: NSObject {
-    static let sharedInstance = NetworkManager()
     
+    //MARK: - Reachability
+    static let sharedInstance = NetworkManager()
     private var serverReach: Reachability?
     var serverAvailable = false
     

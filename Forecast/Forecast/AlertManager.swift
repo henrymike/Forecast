@@ -10,26 +10,36 @@ import UIKit
 
 class AlertManager: UIViewController {
 
+    //MARK: - Properties
     static let sharedInstance = AlertManager()
+    var loadingVC = LoadingViewController.sharedInstance
     
     
-    //MARK: Alert Methods
+    //MARK: - Alert Methods
     
-    func testAlert() {
-        let testAlert = UIAlertController(title: "Data Error", message: "There was a problem retrieving weather data", preferredStyle: .Alert)
-        testAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(testAlert, animated: true, completion: nil)
+    func dataAlert() {
+        let dataAlert = UIAlertController(title: "Data Error", message: "There was a problem retrieving weather data", preferredStyle: .Alert)
+        dataAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//        self.presentViewController(dataAlert, animated: true, completion: nil)
+        createAlertWindow(dataAlert)
     }
     
     func locServicesAlert() {
         let locServicesAlert = UIAlertController(title: "Location Services", message: "We need your location to get your local weather. Please enable Location Services in Settings", preferredStyle: .Alert)
         locServicesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(locServicesAlert, animated: true, completion: nil)
+        createAlertWindow(locServicesAlert)
+    }
+    
+    func createAlertWindow(alertName: UIViewController) {
+        let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.presentViewController(alertName, animated: true, completion: nil)
     }
     
     
-    
-    //MARK: Life Cycle Methods
+    //MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

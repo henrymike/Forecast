@@ -11,8 +11,8 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
+    //MARK: - Properties
     static let sharedInstance = LocationManager()
-    
     var dataManager = DataManager.sharedInstance
     var locManager = CLLocationManager()
     var alertManager = AlertManager.sharedInstance
