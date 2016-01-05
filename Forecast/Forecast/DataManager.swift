@@ -37,6 +37,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")
 
         } catch {
+            //TODO: Add error message that server is not available
             print("JSON Parsing Error")
         }
     }
@@ -58,6 +59,7 @@ class DataManager: NSObject, CLLocationManagerDelegate {
                     NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedDataFromServer", object: nil))
                 }
             } else {
+                //TODO: Add error message that server is not available
                 print("No Data")
             }
         }

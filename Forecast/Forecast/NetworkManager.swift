@@ -27,7 +27,7 @@ class NetworkManager: NSObject {
     override init() {
         super.init()
         print("Starting Network Manager")
-        serverReach = Reachability(hostName: "www.google.com")
+        serverReach = Reachability(hostName: "www.google.com") // using Google as a lighweight page check
         serverReach?.startNotifier()
         NSNotificationCenter.defaultCenter() .addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
     }

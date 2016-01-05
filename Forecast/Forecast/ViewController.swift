@@ -32,6 +32,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             searchBar.resignFirstResponder()
             locManager.geocodeAddress(address)
         } else {
+            //TODO: Add notification for server not available
             print("Search: Server Not Available")
         }
     }

@@ -31,8 +31,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 print("Location authorized")
                 locManager.requestLocation()
             case .Denied, .Restricted:
+                //TODO: Add error message that Location services are disabled; please turn them back on
                 print("Location services disabled/restricted")
             case .NotDetermined:
+                //TODO: Add error message that Location services are disabled; please turn them back on
                 print("Turn location services on in Settings")
                 if (locManager.respondsToSelector("requestWhenInUseAuthorization")) {
                     locManager.requestWhenInUseAuthorization()
@@ -40,6 +42,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 
             }
         } else {
+            //TODO: Add error message that Location services are disabled; please turn them back on
             print("Turn on location services in Settings!")
         }
     }
@@ -55,6 +58,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
             if error != nil {
+                //TODO: Add error message with localizedDescription text for user
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
@@ -69,12 +73,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 })
             }
             else {
+                //TODO: Add error message for user about data issue
                 print("Problem with the geocoded data")
             }
         })
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        //TODO: Add error message with error text for user
         print("Error: \(error)")
     }
     
@@ -90,6 +96,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         geocoder.geocodeAddressString(address, completionHandler: {
             (placemarks, error) -> Void in
             if((error) != nil){
+                //TODO: Add error message instructing user to try search again
                 print("Error", error)
             }
             if let placemark = placemarks?.first {
