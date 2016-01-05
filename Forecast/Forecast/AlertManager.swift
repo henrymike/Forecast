@@ -12,7 +12,6 @@ class AlertManager: UIViewController {
 
     //MARK: - Properties
     static let sharedInstance = AlertManager()
-    var loadingVC = LoadingViewController.sharedInstance
     
     
     //MARK: - Alert Methods
@@ -43,13 +42,10 @@ class AlertManager: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-
 }

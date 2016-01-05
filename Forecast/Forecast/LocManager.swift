@@ -18,6 +18,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var alertManager = AlertManager.sharedInstance
     var userLocationCoordinates = CLLocationCoordinate2D()
     var currentLocation = ""
+    let geocoder = CLGeocoder()
     var geocodedLocation = ""
     
     
@@ -32,11 +33,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 print("Location authorized")
                 locManager.requestLocation()
             case .Denied, .Restricted:
-                //TODO: Add error message that Location services are disabled; please turn them back on
                 alertManager.locServicesAlert()
                 print("Location services disabled/restricted")
             case .NotDetermined:
-                //TODO: Add error message that Location services are disabled; please turn them back on
                 alertManager.locServicesAlert()
                 print("Turn location services on in Settings")
                 if (locManager.respondsToSelector("requestWhenInUseAuthorization")) {
@@ -44,7 +43,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 }
             }
         } else {
-            //TODO: Add error message that Location services are disabled; please turn them back on
             alertManager.locServicesAlert()
             print("Turn on location services in Settings!")
         }
@@ -76,8 +74,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 })
             }
             else {
-                //TODO: Add error message for user about data issue
-                print("Problem with the geocoded data")
+                //TODO: Add error message for user about current location data issue
+                print("Problem with the user location geocoded data")
             }
         })
     }
@@ -89,13 +87,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func convertCoordinateToString(coordinate: CLLocationCoordinate2D) -> String {
         print("Coordinate to String: \(coordinate.latitude),\(coordinate.longitude)")
+        reverseGeocodeCoords(coordinate.latitude, long: coordinate.longitude)
         return "\(coordinate.latitude),\(coordinate.longitude)"
     }
     
-    
     func geocodeAddress(address: String) {
-        let geocoder = CLGeocoder()
-        
         geocoder.geocodeAddressString(address, completionHandler: {
             (placemarks, error) -> Void in
             if((error) != nil){
@@ -105,8 +101,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             if let placemark = placemarks?.first {
                 let coordinates = placemark.location!.coordinate
                 self.dataManager.getDataFromServer(self.convertCoordinateToString(coordinates))
-                
             }
+        })
+    }
+    
+    func reverseGeocodeCoords(lat:Double, long:Double){
+        let location = CLLocation(latitude: lat, longitude: long)
+        geocoder.reverseGeocodeLocation(location) { (placemark, error) -> Void in
+            self.geocodedLocation = placemark!.first!.locality! + ", " + placemark!.first!.ISOcountryCode!
+            print("Reverse Geocoded Location: \(self.geocodedLocation)")
+        }
+        dispatch_async(dispatch_get_main_queue(), { ()
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reverseGeocodedLocationReceived", object: nil))
         })
     }
     

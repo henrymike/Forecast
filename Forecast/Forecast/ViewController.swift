@@ -53,16 +53,16 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     //MARK: - Display Methods
     func displayCurrentForecast() {
-        print("Current Forecast")
         forecastView.hidden = false
         temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
-        print("Location Label: \(locManager.currentLocation)")
+        print("Current Location: \(locManager.currentLocation)")
         
-        if searchBar.text?.characters.count != 0 {
-            locationLabel.text = searchBar.text
-        } else {
-            locationLabel.text = String(locManager.currentLocation)
-        }
+//        if searchBar.text?.characters.count != 0 {
+//            locationLabel.text = searchBar.text
+            locationLabel.text = locManager.geocodedLocation
+//        } else {
+//            locationLabel.text = String(locManager.currentLocation)
+//        }
         summaryLabel.text = dataManager.forecast.summary
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
         windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
@@ -80,6 +80,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         print("User Location Received")
         dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
     }
+    
+    func reverseGeocodeReceived() {
+        print("Reverse Geocoded Location Received")
+        locationLabel.text = locManager.geocodedLocation
+    }
 
     
     //MARK: - Life Cycle Methods
@@ -90,6 +95,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocationReceived", name: "newUserLocationReceived", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reverseGeocodeReceived", name: "reverseGeocodedLocationReceived", object: nil)
     }
     
 
