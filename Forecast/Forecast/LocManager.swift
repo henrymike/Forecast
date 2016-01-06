@@ -108,12 +108,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func reverseGeocodeCoords(lat:Double, long:Double){
         let location = CLLocation(latitude: lat, longitude: long)
         geocoder.reverseGeocodeLocation(location) { (placemark, error) -> Void in
-            self.geocodedLocation = placemark!.first!.locality! + ", " + placemark!.first!.ISOcountryCode!
+            self.geocodedLocation = placemark!.first!.locality! + ", " + placemark!.first!.administrativeArea!
             print("Reverse Geocoded Location: \(self.geocodedLocation)")
+            
+            dispatch_async(dispatch_get_main_queue(), { ()
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reverseGeocodedLocationReceived", object: nil))
+            })
         }
-        dispatch_async(dispatch_get_main_queue(), { ()
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reverseGeocodedLocationReceived", object: nil))
-        })
     }
     
 }

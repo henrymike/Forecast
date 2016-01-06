@@ -56,19 +56,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
         forecastView.hidden = false
         temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
         print("Current Location: \(locManager.currentLocation)")
-        
-//        if searchBar.text?.characters.count != 0 {
-//            locationLabel.text = searchBar.text
-            locationLabel.text = locManager.geocodedLocation
-//        } else {
-//            locationLabel.text = String(locManager.currentLocation)
-//        }
         summaryLabel.text = dataManager.forecast.summary
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
         windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
         iconImageView.image = UIImage(named: "\(dataManager.forecast.icon)")
 
-        forecastView .reloadInputViews()
+        forecastView.reloadInputViews()
     }
     
     func newDataReceived() {
