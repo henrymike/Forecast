@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import Google
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -90,6 +91,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocationReceived", name: "newUserLocationReceived", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reverseGeocodeReceived", name: "reverseGeocodedLocationReceived", object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Main")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
 
