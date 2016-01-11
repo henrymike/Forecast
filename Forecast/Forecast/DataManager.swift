@@ -38,7 +38,6 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")
 
         } catch {
-            //TODO: Add error message that the data is corrupt
             alertManager.dataAlert()
             print("JSON Parsing Error")
         }

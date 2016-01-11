@@ -137,7 +137,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.027450980390000001" green="0.35686274509999999" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="to2-WP-9r2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5AM-TX-8Bh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="liL-5P-SVj" secondAttribute="trailing" constant="-20" id="Gkp-lb-4Jd"/>

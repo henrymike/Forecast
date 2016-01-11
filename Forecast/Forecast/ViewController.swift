@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import Google
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -16,6 +15,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     var networkManager = NetworkManager.sharedInstance
     var dataManager = DataManager.sharedInstance
     var locManager = LocationManager.sharedInstance
+    var alertManager = AlertManager.sharedInstance
     @IBOutlet weak var searchBar :UISearchBar!
     @IBOutlet weak var temperatureLabel :UILabel!
     @IBOutlet weak var locationLabel :UILabel!
@@ -33,8 +33,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
             searchBar.resignFirstResponder()
             locManager.geocodeAddress(address)
         } else {
-            //TODO: Add notification for server not available
             print("Search: Server Not Available")
+            alertManager.dataAlert()
         }
     }
     
@@ -72,7 +72,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     func newLocationReceived() {
         print("User Location Received")
-        dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
+        if networkManager.serverAvailable {
+            dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
+        } else {
+            print("Search: Server Not Available")
+            alertManager.dataAlert()
+        }
     }
     
     func reverseGeocodeReceived() {
@@ -93,15 +98,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reverseGeocodeReceived", name: "reverseGeocodedLocationReceived", object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: "Main")
-        
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
-    }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 

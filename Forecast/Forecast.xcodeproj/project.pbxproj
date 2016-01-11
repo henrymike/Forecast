@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		551DE1EB1C3F013C0027564E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 551DE1EA1C3F013C0027564E /* GoogleService-Info.plist */; };
 		559A2F131BE92D2900D45FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F121BE92D2900D45FD4 /* AppDelegate.swift */; };
 		559A2F151BE92D2900D45FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F141BE92D2900D45FD4 /* ViewController.swift */; };
 		559A2F181BE92D2900D45FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559A2F161BE92D2900D45FD4 /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		551DE1EA1C3F013C0027564E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		551DE1EC1C3F05670027564E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		559A2F0F1BE92D2900D45FD4 /* Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		559A2F121BE92D2900D45FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				559A2F1B1BE92D2900D45FD4 /* LaunchScreen.storyboard */,
 				559A2F1E1BE92D2900D45FD4 /* Info.plist */,
 				559A2F241BE92DAF00D45FD4 /* Forecast-Bridging-Header.h */,
-				551DE1EA1C3F013C0027564E /* GoogleService-Info.plist */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -140,6 +137,7 @@
 				559A2F0D1BE92D2900D45FD4 /* Resources */,
 				6E2DC93CC1EAB7EF5BFD2D77 /* Embed Pods Frameworks */,
 				9C9A6629E61BD98C77543469 /* Copy Pods Resources */,
+				55D9C7061C44195000D72A67 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -190,7 +188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				559A2F1D1BE92D2900D45FD4 /* LaunchScreen.storyboard in Resources */,
-				551DE1EB1C3F013C0027564E /* GoogleService-Info.plist in Resources */,
 				559A2F1A1BE92D2900D45FD4 /* Assets.xcassets in Resources */,
 				559A2F181BE92D2900D45FD4 /* Main.storyboard in Resources */,
 			);
@@ -199,6 +196,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		55D9C7061C44195000D72A67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 17ba897085ebb4ea85cfc7f40d8eb9a0fa84bef7 432360b28a45d96f7b1704d7a47de8a9a4512dd1543ae27566cc61673a3e0e13";
+		};
 		6E2DC93CC1EAB7EF5BFD2D77 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,7 +314,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mike Henry (47JA6XWPPH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mike Henry (47JA6XWPPH)";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -12,6 +12,7 @@ class NetworkManager: NSObject {
     
     //MARK: - Reachability
     static let sharedInstance = NetworkManager()
+    let dataManager = DataManager.sharedInstance
     private var serverReach: Reachability?
     var serverAvailable = false
     
@@ -22,13 +23,14 @@ class NetworkManager: NSObject {
             print("Changed: Server Available")
         } else {
             print("Changed: Server Not Available")
+            serverAvailable = false
         }
     }
     
     override init() {
         super.init()
         print("Starting Network Manager")
-        serverReach = Reachability(hostName: "www.google.com") // using Google as a lighweight page check
+        serverReach = Reachability(hostName: "\(dataManager.baseURLString)" )
         serverReach?.startNotifier()
         NSNotificationCenter.defaultCenter() .addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
     }

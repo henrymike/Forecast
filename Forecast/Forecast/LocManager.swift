@@ -59,7 +59,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
             if error != nil {
-                //TODO: Add error message with localizedDescription text for user
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
@@ -74,14 +73,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 })
             }
             else {
-                //TODO: Add error message for user about current location data issue
                 print("Problem with the user location geocoded data")
             }
         })
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        //TODO: Add error message with error text for user
         print("Error: \(error)")
     }
     
@@ -95,7 +92,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         geocoder.geocodeAddressString(address, completionHandler: {
             (placemarks, error) -> Void in
             if((error) != nil){
-                //TODO: Add error message instructing user to try search again
                 print("Error", error)
             }
             if let placemark = placemarks?.first {
