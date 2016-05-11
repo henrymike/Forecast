@@ -38,7 +38,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             case .NotDetermined:
                 alertManager.locServicesAlert()
                 print("Turn location services on in Settings")
-                if (locManager.respondsToSelector("requestWhenInUseAuthorization")) {
+                if (locManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization))) {
                     locManager.requestWhenInUseAuthorization()
                 }
             }
@@ -53,7 +53,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     //MARK: - Geocoding Methods
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        userLocationCoordinates = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
+        if locations.last?.coordinate.latitude != nil && locations.last?.coordinate.longitude != nil {
+            userLocationCoordinates = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
+        } else {
+            print("Last location not found for geocoder")
+            return
+        }
+        
         
         let location = CLLocation(latitude: userLocationCoordinates.latitude, longitude: userLocationCoordinates.longitude)
         

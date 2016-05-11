@@ -32,6 +32,6 @@ class NetworkManager: NSObject {
         print("Starting Network Manager")
         serverReach = Reachability(hostName: "\(dataManager.baseURLString)" )
         serverReach?.startNotifier()
-        NSNotificationCenter.defaultCenter() .addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
+        NSNotificationCenter.defaultCenter() .addObserver(self, selector: #selector(NetworkManager.reachabilityChanged(_:)), name: kReachabilityChangedNotification, object: nil)
     }
 }

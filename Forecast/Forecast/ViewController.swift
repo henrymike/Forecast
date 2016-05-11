@@ -91,11 +91,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         locManager.setUpLocationMonitoring()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataReceived", name: "receivedDataFromServer", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.newDataReceived), name: "receivedDataFromServer", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newLocationReceived", name: "newUserLocationReceived", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.newLocationReceived), name: "newUserLocationReceived", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reverseGeocodeReceived", name: "reverseGeocodedLocationReceived", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reverseGeocodeReceived), name: "reverseGeocodedLocationReceived", object: nil)
     }
     
     override func didReceiveMemoryWarning() {
