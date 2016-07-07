@@ -53,6 +53,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     //MARK: - Display Methods
     func displayCurrentForecast() {
@@ -92,6 +96,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locManager.setUpLocationMonitoring()
+        
+        //Dismiss keyboard from Search bar on tap gesture
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.newDataReceived), name: "receivedDataFromServer", object: nil)
         
