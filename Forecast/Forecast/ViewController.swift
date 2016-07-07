@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import Crashlytics
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             let address = searchBar.text!
             searchBar.resignFirstResponder()
             locManager.geocodeAddress(address)
+            Answers.logCustomEventWithName("Search Query", customAttributes: ["Entered Text" : address])
         } else {
             print("Search: Server Not Available")
             alertManager.dataAlert()
