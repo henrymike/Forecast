@@ -17,23 +17,23 @@ class AlertManager: UIViewController {
     //MARK: - Alert Methods
     
     func dataAlert() {
-        let dataAlert = UIAlertController(title: "Data Error", message: "There was a problem retrieving weather data", preferredStyle: .Alert)
-        dataAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        let dataAlert = UIAlertController(title: "Data Error", message: "There was a problem retrieving weather data", preferredStyle: .alert)
+        dataAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         createAlertWindow(dataAlert)
     }
     
     func locServicesAlert() {
-        let locServicesAlert = UIAlertController(title: "Location Services", message: "We need your location to get your local weather. Please enable Location Services in Settings", preferredStyle: .Alert)
-        locServicesAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        let locServicesAlert = UIAlertController(title: "Location Services", message: "We need your location to get your local weather. Please enable Location Services in Settings", preferredStyle: .alert)
+        locServicesAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         createAlertWindow(locServicesAlert)
     }
     
-    func createAlertWindow(alertName: UIViewController) {
-        let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    func createAlertWindow(_ alertName: UIViewController) {
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
         alertWindow.windowLevel = UIWindowLevelAlert + 1
         alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.presentViewController(alertName, animated: true, completion: nil)
+        alertWindow.rootViewController?.present(alertName, animated: true, completion: nil)
     }
     
 }

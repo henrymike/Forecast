@@ -29,16 +29,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locManager.desiredAccuracy = kCLLocationAccuracyKilometer
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
-            case .AuthorizedAlways, .AuthorizedWhenInUse:
+            case .authorizedAlways, .authorizedWhenInUse:
                 print("Location authorized")
                 locManager.requestLocation()
-            case .Denied, .Restricted:
+            case .denied, .restricted:
                 alertManager.locServicesAlert()
                 print("Location services disabled/restricted")
-            case .NotDetermined:
+            case .notDetermined:
                 alertManager.locServicesAlert()
                 print("Turn location services on in Settings")
-                if (locManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization))) {
+                if (locManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization))) {
                     locManager.requestWhenInUseAuthorization()
                 }
             }
@@ -52,7 +52,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     //MARK: - Geocoding Methods
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.last?.coordinate.latitude != nil && locations.last?.coordinate.longitude != nil {
             userLocationCoordinates = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
         } else {
@@ -74,8 +74,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 print("Current Location: \(currentLoc.locality!)")
                 self.currentLocation = String(currentLoc.locality!)
                 
-                dispatch_async(dispatch_get_main_queue(), { ()
-                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "newUserLocationReceived", object: nil))
+                DispatchQueue.main.async(execute: { ()
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newUserLocationReceived"), object: nil))
                 })
             }
             else {
@@ -84,17 +84,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         })
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error)")
     }
     
-    func convertCoordinateToString(coordinate: CLLocationCoordinate2D) -> String {
+    func convertCoordinateToString(_ coordinate: CLLocationCoordinate2D) -> String {
         print("Coordinate to String: \(coordinate.latitude),\(coordinate.longitude)")
         reverseGeocodeCoords(coordinate.latitude, long: coordinate.longitude)
         return "\(coordinate.latitude),\(coordinate.longitude)"
     }
     
-    func geocodeAddress(address: String) {
+    func geocodeAddress(_ address: String) {
         geocoder.geocodeAddressString(address, completionHandler: {
             (placemarks, error) -> Void in
             if((error) != nil){
@@ -107,14 +107,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         })
     }
     
-    func reverseGeocodeCoords(lat:Double, long:Double){
+    func reverseGeocodeCoords(_ lat:Double, long:Double){
         let location = CLLocation(latitude: lat, longitude: long)
         geocoder.reverseGeocodeLocation(location) { (placemark, error) -> Void in
             self.geocodedLocation = placemark!.first!.locality! + ", " + placemark!.first!.administrativeArea!
             print("Reverse Geocoded Location: \(self.geocodedLocation)")
             
-            dispatch_async(dispatch_get_main_queue(), { ()
-                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reverseGeocodedLocationReceived", object: nil))
+            DispatchQueue.main.async(execute: { ()
+                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil))
             })
         }
     }

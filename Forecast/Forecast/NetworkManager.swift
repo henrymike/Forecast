@@ -13,10 +13,10 @@ class NetworkManager: NSObject {
     //MARK: - Reachability
     static let sharedInstance = NetworkManager()
     let dataManager = DataManager.sharedInstance
-    private var serverReach: Reachability?
+    fileprivate var serverReach: Reachability?
     var serverAvailable = false
     
-    func reachabilityChanged(note: NSNotification) {
+    func reachabilityChanged(_ note: Notification) {
         let reach = note.object as! Reachability
         serverAvailable = !(reach.currentReachabilityStatus().rawValue == NotReachable.rawValue)
         if serverAvailable {
@@ -32,6 +32,6 @@ class NetworkManager: NSObject {
         print("Starting Network Manager")
         serverReach = Reachability(hostName: "\(dataManager.baseURLString)" )
         serverReach?.startNotifier()
-        NSNotificationCenter.defaultCenter() .addObserver(self, selector: #selector(NetworkManager.reachabilityChanged(_:)), name: kReachabilityChangedNotification, object: nil)
+        NotificationCenter.default .addObserver(self, selector: #selector(NetworkManager.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: nil)
     }
 }

@@ -28,28 +28,28 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     
     //MARK: - Interactivity Methods        
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if networkManager.serverAvailable {
             let address = searchBar.text!
             searchBar.resignFirstResponder()
             locManager.geocodeAddress(address)
-            Answers.logCustomEventWithName("Search Query", customAttributes: ["Entered Text" : address])
+            Answers.logCustomEvent(withName: "Search Query", customAttributes: ["Entered Text" : address])
         } else {
             print("Search: Server Not Available")
             alertManager.dataAlert()
         }
     }
     
-    @IBAction func reloadCurrentWeather(sender: UIBarButtonItem) {
+    @IBAction func reloadCurrentWeather(_ sender: UIBarButtonItem) {
         searchBar.text = ""
         searchBar.placeholder = "Current Location"
         locManager.setUpLocationMonitoring()
     }
     
-    @IBAction func creditsButtonPressed(sender: UIButton) {
-        if let url = NSURL(string: "http://forecast.io") {
-            let viewcont = SFSafariViewController(URL: url)
-            presentViewController(viewcont, animated: true, completion: nil)
+    @IBAction func creditsButtonPressed(_ sender: UIButton) {
+        if let url = URL(string: "http://forecast.io") {
+            let viewcont = SFSafariViewController(url: url)
+            present(viewcont, animated: true, completion: nil)
         }
     }
     
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     //MARK: - Display Methods
     func displayCurrentForecast() {
-        forecastView.hidden = false
+        forecastView.isHidden = false
         temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
         print("Current Location: \(locManager.currentLocation)")
         summaryLabel.text = dataManager.forecast.summary
@@ -101,11 +101,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.newDataReceived), name: "receivedDataFromServer", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.newDataReceived), name: NSNotification.Name(rawValue: "receivedDataFromServer"), object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.newLocationReceived), name: "newUserLocationReceived", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.newLocationReceived), name: NSNotification.Name(rawValue: "newUserLocationReceived"), object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reverseGeocodeReceived), name: "reverseGeocodedLocationReceived", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reverseGeocodeReceived), name: NSNotification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
