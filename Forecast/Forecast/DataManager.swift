@@ -13,9 +13,10 @@ class DataManager: NSObject, CLLocationManagerDelegate {
 
     //MARK: - Properties
     static let sharedInstance = DataManager()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var alertManager = AlertManager.sharedInstance
-    var baseURLString = "api.forecast.io"
-    var apiKey = "33db1afe1d846e9f1b20d8b76be7dbfd"
+    let baseURLString = "api.darksky.net"
+    var apiKey :String?
     var forecast = Weather()
     
     
@@ -36,7 +37,6 @@ class DataManager: NSObject, CLLocationManagerDelegate {
             
             forecast = newForecast
             print("Summary:\(newForecast.summary) Icon:\(newForecast.icon) RainChance:\(newForecast.precipProbability) Temp:\(newForecast.temperature) Humidity:\(newForecast.humidity) Wind:\(newForecast.windSpeed)")
-
         } catch {
             alertManager.dataAlert()
             print("JSON Parsing Error")
@@ -48,7 +48,19 @@ class DataManager: NSObject, CLLocationManagerDelegate {
         defer {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-        let url = URL(string: "https://\(baseURLString)/forecast/\(apiKey)/\(coordinateString)")
+        
+        //Fetch API Key from plist
+        var keys :NSDictionary?
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            apiKey = dict["darkSkyAPIKey"] as? String
+            print("API KEY:\(apiKey)")
+        }
+        
+        //Construct URL and fetch Data
+        let url = URL(string: "https://\(baseURLString)/forecast/\(apiKey!)/\(coordinateString)")
         print("Search URL:\(url!)")
         let urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30.0)
         let urlSession = URLSession.shared

@@ -13,9 +13,10 @@ import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window :UIWindow?
 
-
+    
+    //MARK: - Lifecycle Methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Fabric with Crashlytics
@@ -25,4 +26,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

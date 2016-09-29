@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jkS-pt-XZd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jkS-pt-XZd">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Weather-->
@@ -15,11 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="City, State" translatesAutoresizingMaskIntoConstraints="NO" id="to2-WP-9r2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="City, State" translatesAutoresizingMaskIntoConstraints="NO" id="to2-WP-9r2">
+                                <frame key="frameInset" minY="64" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="GGc-jm-uIa"/>
                                 </constraints>
@@ -28,75 +29,80 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lQQ-nN-zii"/>
                                 </connections>
                             </searchBar>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liL-5P-SVj">
-                                <rect key="frame" x="-1" y="108" width="601" height="492"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="liL-5P-SVj">
+                                <frame key="frameInset" minX="-1" minY="108" width="601" height="492"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tK-yu2">
-                                        <rect key="frame" x="8" y="28" width="585" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tK-yu2">
+                                        <frame key="frameInset" minX="8" minY="28" width="585" height="128"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="h6k-oe-YYO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-6Y-j7i">
-                                        <rect key="frame" x="8" y="177" width="585" height="140"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="68" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-6Y-j7i">
+                                        <frame key="frameInset" minX="8" minY="177" width="585" height="140"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="id2-nH-Vls"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="98"/>
-                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="f2b-Va-tMB" appends="YES" id="oSx-nM-DHU"/>
+                                        </connections>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charleston, SC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1P-hX-rqi">
-                                        <rect key="frame" x="8" y="319" width="585" height="56"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Charleston, SC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1P-hX-rqi">
+                                        <frame key="frameInset" minX="8" minY="319" width="585" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="5lL-fJ-8Ci"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="28"/>
-                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Rb-bSq">
-                                        <rect key="frame" x="322" y="382" width="271" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Rb-bSq">
+                                        <frame key="frameInset" minX="322" minY="382" width="271" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FLK-Ch-MF0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-CD-fn7">
-                                        <rect key="frame" x="8" y="382" width="254" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rain" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-CD-fn7">
+                                        <frame key="frameInset" minX="8" minY="382" width="254" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="I6h-eh-de4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.32549019607843138" green="0.65490196078431373" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zI-Zh-u9m">
-                                        <rect key="frame" x="8" y="278" width="585" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Clear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zI-Zh-u9m">
+                                        <frame key="frameInset" minX="8" minY="278" width="585" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="ONp-Rp-KNd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="26"/>
-                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.98198632990000001" green="1" blue="0.98857721880000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX9-Ij-6pD">
-                                        <rect key="frame" x="250" y="464" width="101" height="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX9-Ij-6pD">
+                                        <frame key="frameInset" minX="239" minY="464" width="122" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="kP9-JR-3Sp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="11"/>
-                                        <state key="normal" title="Powered by Forecast">
-                                            <color key="titleColor" red="0.32549019610000002" green="0.65490196079999996" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Powered by Dark Sky">
+                                            <color key="titleColor" red="0.32549019610000002" green="0.65490196079999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="creditsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3A-pZ-z66"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.027450980392156862" green="0.35686274509803922" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.027450980392156862" green="0.35686274509803922" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="f1P-hX-rqi" firstAttribute="top" secondItem="Bie-6Y-j7i" secondAttribute="bottom" constant="-7" id="06c-WJ-uMx"/>
                                     <constraint firstAttribute="trailing" secondItem="6Em-Rb-bSq" secondAttribute="trailing" constant="8" id="0Xc-jM-Qel"/>
@@ -137,7 +143,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.027450980390000001" green="0.35686274509999999" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.027450980390000001" green="0.35686274509999999" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="to2-WP-9r2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5AM-TX-8Bh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="liL-5P-SVj" secondAttribute="trailing" constant="-20" id="Gkp-lb-4Jd"/>
@@ -167,8 +173,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="f2b-Va-tMB">
+                    <connections>
+                        <action selector="switchUnitTypes" destination="BYZ-38-t0r" id="3RU-U0-hRH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1057" y="236"/>
+            <point key="canvasLocation" x="1056.25" y="235.54687499999997"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wxj-TU-aGn">

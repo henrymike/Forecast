@@ -26,6 +26,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var iconImageView :UIImageView!
     @IBOutlet weak var forecastView :UIView!
     
+    private var currentTemperatureFormat :UnitsType = .standard
+    
     
     //MARK: - Interactivity Methods        
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -47,7 +49,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func creditsButtonPressed(_ sender: UIButton) {
-        if let url = URL(string: "http://forecast.io") {
+        if let url = URL(string: "https://darksky.net/poweredby/") {
             let viewcont = SFSafariViewController(url: url)
             present(viewcont, animated: true, completion: nil)
         }
@@ -58,14 +60,50 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     
+    //MARK: - Unit Type Support
+    private enum UnitsType {
+        case metric
+        case standard
+    }
+    
+    @IBAction private func switchUnitTypes() {
+        switch currentTemperatureFormat {
+        case .metric:
+            print("Switched to F")
+            currentTemperatureFormat = .standard
+            displayCurrentForecast()
+        case .standard:
+            print("Switched to C")
+            currentTemperatureFormat = .metric
+            displayCurrentForecast()
+        }
+    }
+    
+    
     //MARK: - Display Methods
-    func displayCurrentForecast() {
+    private func displayCurrentForecast() {
         forecastView.isHidden = false
-        temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
+        
+        switch currentTemperatureFormat {
+        case .metric:
+            let celciusTemp = ((((dataManager.forecast.temperature)-32)*5)/9)
+            print("Celculated Temp C:\(celciusTemp)")
+            temperatureLabel.text = "\(String (format: "%.0f", celciusTemp))°"
+        case .standard:
+            temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
+        }
+        
         print("Current Location: \(locManager.currentLocation)")
         summaryLabel.text = dataManager.forecast.summary
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
-        windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
+        
+        switch currentTemperatureFormat {
+        case .metric:
+            let windKPH = ((dataManager.forecast.windSpeed)*1.609344)
+            windLabel.text = "Wind: \(String (format: "%.0f", windKPH))kph"
+        case .standard:
+            windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
+        }
         iconImageView.image = UIImage(named: "\(dataManager.forecast.icon)")
 
         forecastView.reloadInputViews()
