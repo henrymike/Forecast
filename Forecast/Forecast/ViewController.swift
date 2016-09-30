@@ -84,10 +84,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     private func displayCurrentForecast() {
         forecastView.isHidden = false
         
+        //Temperature Display C/F
         switch currentTemperatureFormat {
         case .metric:
             let celciusTemp = ((((dataManager.forecast.temperature)-32)*5)/9)
-            print("Celculated Temp C:\(celciusTemp)")
+            print("Calculated Temp C:\(celciusTemp)")
             temperatureLabel.text = "\(String (format: "%.0f", celciusTemp))°"
         case .standard:
             temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
@@ -97,6 +98,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         summaryLabel.text = dataManager.forecast.summary
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
         
+        //Wind Speed Display kph/mph
         switch currentTemperatureFormat {
         case .metric:
             let windKPH = ((dataManager.forecast.windSpeed)*1.609344)
@@ -104,8 +106,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         case .standard:
             windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
         }
-        iconImageView.image = UIImage(named: "\(dataManager.forecast.icon)")
-
+        
+        iconImageView.image = UIImage(named: "\(dataManager.forecast.icon as String)")
         forecastView.reloadInputViews()
     }
     
@@ -127,6 +129,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     func reverseGeocodeReceived() {
         print("Reverse Geocoded Location Received")
         locationLabel.text = locManager.geocodedLocation
+        Answers.logCustomEvent(withName: "Location", customAttributes: ["Returned Location" : locManager.geocodedLocation])
     }
 
     
