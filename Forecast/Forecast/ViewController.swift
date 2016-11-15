@@ -81,17 +81,37 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     
     //MARK: - Display Methods
+    func createAttributedString(temperature: Double, unitType: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString()
+        
+        let temperatureFont = UIFont(name: "KhmerSangamMN", size: 98.0)
+        let temperatureColor = UIColor(red: 250, green: 255, blue: 252, alpha: 1)
+        let temperatureAttributedString = NSAttributedString(string: "\(String (format: "%.0f", temperature))°", attributes: [NSFontAttributeName: temperatureFont!, NSForegroundColorAttributeName: temperatureColor])
+        
+        let unitTypeFont = UIFont(name: "KhmerSangamMN", size: 72.0)
+        let unitTypeColor = UIColor(red: 74, green: 163, blue: 247, alpha: 1)
+        let unitTypeAttributedString = NSAttributedString(string: "\(unitType)", attributes: [NSFontAttributeName : unitTypeFont!, NSForegroundColorAttributeName : unitTypeColor])
+        
+        attributedString.append(temperatureAttributedString)
+        attributedString.append(unitTypeAttributedString)
+        
+        return attributedString
+    }
+    
+    
     private func displayCurrentForecast() {
         forecastView.isHidden = false
         
         //Temperature Display C/F
         switch currentTemperatureFormat {
         case .metric:
-            let celciusTemp = ((((dataManager.forecast.temperature)-32)*5)/9)
+            let celciusTemp = (Double(((dataManager.forecast.temperature)-32)*5)/9)
             print("Calculated Temp C:\(celciusTemp)")
-            temperatureLabel.text = "\(String (format: "%.0f", celciusTemp))°"
+            let generatedLabel = createAttributedString(temperature: celciusTemp, unitType: "C")
+            temperatureLabel.attributedText = generatedLabel
         case .standard:
-            temperatureLabel.text = "\(String (format: "%.0f", dataManager.forecast.temperature))°"
+            let generatedLabel = createAttributedString(temperature: dataManager.forecast.temperature, unitType: "F")
+            temperatureLabel.attributedText = generatedLabel
         }
         
         print("Current Location: \(locManager.currentLocation)")
@@ -155,4 +175,3 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
 }
-

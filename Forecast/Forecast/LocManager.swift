@@ -98,7 +98,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         geocoder.geocodeAddressString(address, completionHandler: {
             (placemarks, error) -> Void in
             if((error) != nil){
-                print("Error", error)
+                print("Error: ", error ?? "no error provided")
+                return
             }
             if let placemark = placemarks?.first {
                 let coordinates = placemark.location!.coordinate
