@@ -55,7 +55,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
@@ -86,11 +86,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         let temperatureFont = UIFont(name: "KhmerSangamMN", size: 98.0)
         let temperatureColor = UIColor(red: 250, green: 255, blue: 252, alpha: 1)
-        let temperatureAttributedString = NSAttributedString(string: "\(String (format: "%.0f", temperature))°", attributes: [NSFontAttributeName: temperatureFont!, NSForegroundColorAttributeName: temperatureColor])
+        let temperatureAttributedString = NSAttributedString(string: "\(String (format: "%.0f", temperature))°", attributes: [NSAttributedStringKey.font: temperatureFont!, NSAttributedStringKey.foregroundColor: temperatureColor])
         
         let unitTypeFont = UIFont(name: "KhmerSangamMN", size: 72.0)
         let unitTypeColor = UIColor(red: 74, green: 163, blue: 247, alpha: 1)
-        let unitTypeAttributedString = NSAttributedString(string: "\(unitType)", attributes: [NSFontAttributeName : unitTypeFont!, NSForegroundColorAttributeName : unitTypeColor])
+        let unitTypeAttributedString = NSAttributedString(string: "\(unitType)", attributes: [NSAttributedStringKey.font : unitTypeFont!, NSAttributedStringKey.foregroundColor : unitTypeColor])
         
         attributedString.append(temperatureAttributedString)
         attributedString.append(unitTypeAttributedString)
@@ -131,12 +131,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
         forecastView.reloadInputViews()
     }
     
-    func newDataReceived() {
+    @objc func newDataReceived() {
         print("New Data Received")
         displayCurrentForecast()
     }
     
-    func newLocationReceived() {
+    @objc func newLocationReceived() {
         print("User Location Received")
         if networkManager.serverAvailable {
             dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
@@ -146,7 +146,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func reverseGeocodeReceived() {
+    @objc func reverseGeocodeReceived() {
         print("Reverse Geocoded Location Received")
         locationLabel.text = locManager.geocodedLocation
         Answers.logCustomEvent(withName: "Location", customAttributes: ["Returned Location" : locManager.geocodedLocation])
