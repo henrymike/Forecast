@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Keys.plist
-   Forecast
-
-   Created by Mike Henry on 9/28/16.
-   Copyright (c) 2016 Mike Henry. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>darkSkyAPIKey</key>
+	<string>33db1afe1d846e9f1b20d8b76be7dbfd</string>
+</dict>
 </plist>
