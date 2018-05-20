@@ -16,5 +16,5 @@ class Weather: NSObject {
     var temperature :Double!
     var humidity :Double!
     var windSpeed :Double!
-
+    var windDirection :Double!
 }

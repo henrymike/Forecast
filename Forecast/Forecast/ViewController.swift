@@ -25,7 +25,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var windLabel :UILabel!
     @IBOutlet weak var iconImageView :UIImageView!
     @IBOutlet weak var forecastView :UIView!
-    
+    private var windDirection :String!
     private var currentTemperatureFormat :UnitsType = .standard
     
     
@@ -119,16 +119,42 @@ class ViewController: UIViewController, UISearchBarDelegate {
         rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
         
         //Wind Speed Display kph/mph
+        windDirection = determineWindDirection(compass: dataManager.forecast.windDirection)
         switch currentTemperatureFormat {
         case .metric:
             let windKPH = ((dataManager.forecast.windSpeed)*1.609344)
-            windLabel.text = "Wind: \(String (format: "%.0f", windKPH))kph"
+            windLabel.text = "Wind: \(windDirection!) \(String (format: "%.0f", windKPH))kph"
         case .standard:
-            windLabel.text = "Wind: \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
+            windLabel.text = "Wind: \(windDirection!) \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
         }
         
         iconImageView.image = UIImage(named: "\(dataManager.forecast.icon as String)")
         forecastView.reloadInputViews()
+    }
+    
+    private func determineWindDirection(compass: Double) -> String {
+        switch compass {
+        case 0...22:
+            return "N"
+        case 23...66:
+            return "NE"
+        case 67...111:
+            return "E"
+        case 112...156:
+            return "SE"
+        case 157...202:
+            return "S"
+        case 203...246:
+            return "SW"
+        case 247...291:
+            return "W"
+        case 292...337:
+            return "NW"
+        case 338...359:
+            return "N"
+        default:
+            return ""
+        }
     }
     
     @objc func newDataReceived() {
