@@ -19,7 +19,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     var alertManager = AlertManager.sharedInstance
     @IBOutlet weak var searchBar :UISearchBar!
     @IBOutlet weak var temperatureLabel :UILabel!
-    @IBOutlet weak var locationLabel :UILabel!
+    @IBOutlet weak var locationLabel :UILabel! {
+        didSet {
+            locationLabel.text = "" //Set to blank until data comes back
+        }
+    }
     @IBOutlet weak var summaryLabel :UILabel!
     @IBOutlet weak var rainLabel :UILabel!
     @IBOutlet weak var windLabel :UILabel!
@@ -166,9 +170,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         print("User Location Received")
         if networkManager.serverAvailable {
             dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
-        } else {
-            print("Search: Server Not Available")
-            alertManager.dataAlert()
         }
     }
     

@@ -36,21 +36,28 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 alertManager.locServicesAlert()
                 print("Location services disabled/restricted")
             case .notDetermined:
-                alertManager.locServicesAlert()
                 print("Turn location services on in Settings")
                 if (locManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization))) {
                     locManager.requestWhenInUseAuthorization()
                 }
             }
-        } else {
-            alertManager.locServicesAlert()
-            print("Turn on location services in Settings!")
         }
     }
     
     
     
     //MARK: - Geocoding Methods
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            DispatchQueue.main.async(execute: { ()
+                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newUserLocationReceived"), object: nil))
+            })
+        default:
+            return
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.last?.coordinate.latitude != nil && locations.last?.coordinate.longitude != nil {
@@ -111,13 +118,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func reverseGeocodeCoords(_ lat:Double, long:Double){
         let location = CLLocation(latitude: lat, longitude: long)
         geocoder.reverseGeocodeLocation(location) { (placemark, error) -> Void in
-            self.geocodedLocation = placemark!.first!.locality! + ", " + placemark!.first!.administrativeArea!
-            print("Reverse Geocoded Location: \(self.geocodedLocation)")
-            
-            DispatchQueue.main.async(execute: { ()
-                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil))
-            })
+            if let locality = placemark?.first?.locality, let adminArea = placemark?.first?.administrativeArea {
+                self.geocodedLocation = locality + ", " + adminArea
+                print("Reverse Geocoded Location: \(self.geocodedLocation)")
+                
+                DispatchQueue.main.async(execute: { ()
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil))
+                })
+            }
         }
     }
-    
 }
