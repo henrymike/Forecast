@@ -25,7 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor(red: 250/255, green: 255/255, blue: 252/255, alpha: 1.0)
         
         // Fabric with Crashlytics
-        Fabric.with([Crashlytics.self])
+        let isUserOptedOutofTracking = UserDefaults.standard.bool(forKey: "FabricOptOut")
+        switch isUserOptedOutofTracking {
+        case false:
+            Fabric.with([Crashlytics.self])
+        case true:
+            break
+        }
         
         return true
     }

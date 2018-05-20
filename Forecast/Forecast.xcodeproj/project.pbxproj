@@ -18,6 +18,7 @@
 		559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */; };
 		559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2D1BE937DC00D45FD4 /* Weather.swift */; };
 		559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A2F331BE9450000D45FD4 /* CoreLocation.framework */; };
+		55A4A4EA20B2275700B78534 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A4A4E920B2275700B78534 /* SettingsViewController.swift */; };
 		55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA04661BFE54E9009DDBD7 /* LocManager.swift */; };
 		55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB514E1C3C41E900E99A3B /* AlertManager.swift */; };
 		D1C192B4E1E92252BB1CE053 /* Pods_Forecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC114D27FAA65A5146750BAA /* Pods_Forecast.framework */; };
@@ -41,6 +42,7 @@
 		559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		559A2F2D1BE937DC00D45FD4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		559A2F331BE9450000D45FD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		55A4A4E920B2275700B78534 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		55CA04661BFE54E9009DDBD7 /* LocManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocManager.swift; sourceTree = "<group>"; };
 		55FB514E1C3C41E900E99A3B /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A24E8C1F0FD3490E5E2EDBD5 /* Pods-Forecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Forecast/Pods-Forecast.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				559A2F121BE92D2900D45FD4 /* AppDelegate.swift */,
 				559A2F141BE92D2900D45FD4 /* ViewController.swift */,
+				55A4A4E920B2275700B78534 /* SettingsViewController.swift */,
 				559A2F2A1BE92E0800D45FD4 /* Managers */,
 				559A2F161BE92D2900D45FD4 /* Main.storyboard */,
 				559A2F191BE92D2900D45FD4 /* Assets.xcassets */,
@@ -277,6 +280,7 @@
 				559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */,
 				55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */,
 				559A2F131BE92D2900D45FD4 /* AppDelegate.swift in Sources */,
+				55A4A4EA20B2275700B78534 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
