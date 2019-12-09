@@ -29,6 +29,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var windLabel :UILabel!
     @IBOutlet weak var iconImageView :UIImageView!
     @IBOutlet weak var forecastView :UIView!
+    var forecast = Weather()
     private var windDirection :String!
     private var currentTemperatureFormat :UnitsType = .standard
     
@@ -109,30 +110,33 @@ class ViewController: UIViewController, UISearchBarDelegate {
         //Temperature Display C/F
         switch currentTemperatureFormat {
         case .metric:
-            let celciusTemp = (Double(((dataManager.forecast.temperature)-32)*5)/9)
+            let celciusTemp = (Double(((forecast.temperature!)-32)*5)/9)
             print("Calculated Temp C:\(celciusTemp)")
             let generatedLabel = createAttributedString(temperature: celciusTemp, unitType: "C")
             temperatureLabel.attributedText = generatedLabel
         case .standard:
-            let generatedLabel = createAttributedString(temperature: dataManager.forecast.temperature, unitType: "F")
+            let generatedLabel = createAttributedString(temperature: forecast.temperature!, unitType: "F")
             temperatureLabel.attributedText = generatedLabel
         }
         
         print("Current Location: \(locManager.currentLocation)")
-        summaryLabel.text = dataManager.forecast.summary
-        rainLabel.text = "Rain: \(String (format: "%.0f", dataManager.forecast.precipProbability*100))%"
+        summaryLabel.text = forecast.summary
+        rainLabel.text = "Rain: \(String (format: "%.0f", forecast.precipitation!*100))%"
         
         //Wind Speed Display kph/mph
-        windDirection = determineWindDirection(compass: dataManager.forecast.windDirection)
-        switch currentTemperatureFormat {
-        case .metric:
-            let windKPH = ((dataManager.forecast.windSpeed)*1.609344)
-            windLabel.text = "Wind: \(windDirection!) \(String (format: "%.0f", windKPH))kph"
-        case .standard:
-            windLabel.text = "Wind: \(windDirection!) \(String (format: "%.0f", dataManager.forecast.windSpeed))mph"
+        if let windDirection = forecast.windDirection {
+            let direction = determineWindDirection(compass: windDirection)
+            switch currentTemperatureFormat {
+            case .metric:
+                let windKPH = ((forecast.windSpeed!)*1.609344)
+                windLabel.text = "Wind: \(direction) \(String (format: "%.0f", windKPH))kph"
+            case .standard:
+                windLabel.text = "Wind: \(direction) \(String (format: "%.0f", forecast.windSpeed!))mph"
+            }
         }
+
         
-        iconImageView.image = UIImage(named: "\(dataManager.forecast.icon as String)")
+        iconImageView.image = UIImage(named: "\(forecast.icon!)")
         forecastView.reloadInputViews()
     }
     
@@ -168,9 +172,26 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     @objc func newLocationReceived() {
         print("User Location Received")
-        if networkManager.serverAvailable {
-            dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
-        }
+//        if networkManager.serverAvailable {
+//            dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
+            
+            DataManager.getForecastData(coordinateString: locManager.convertCoordinateToString(locManager.userLocationCoordinates)) { (forecastData, error) in
+                if let _ = error {
+                    //handle error?
+                } else if let forecast = forecastData {
+                    DispatchQueue.main.async() {
+                        [weak self] in
+                        guard let strongSelf = self else { return }
+                        strongSelf.forecast = forecast
+//                        DispatchQueue.main.async {
+                        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "receivedDataFromServer"), object: nil))
+//                                        }
+//                        strongSelf.displayCurrentForecast()
+                    }
+                }
+//                print("Data: \(data)")
+            }
+//        }
     }
     
     @objc func reverseGeocodeReceived() {

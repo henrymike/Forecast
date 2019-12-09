@@ -30,8 +30,8 @@ class NetworkManager: NSObject {
     override init() {
         super.init()
         print("Starting Network Manager")
-        serverReach = Reachability(hostName: "\(dataManager.baseURLString)" )
-        serverReach?.startNotifier()
-        NotificationCenter.default .addObserver(self, selector: #selector(NetworkManager.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: nil)
+//        serverReach = Reachability(hostName: "\(dataManager.baseURLString)" )
+//        serverReach?.startNotifier()
+//        NotificationCenter.default .addObserver(self, selector: #selector(NetworkManager.reachabilityChanged(_:)), name: NSNotification.Name.reachabilityChanged, object: nil)
     }
 }

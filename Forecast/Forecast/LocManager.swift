@@ -110,7 +110,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             }
             if let placemark = placemarks?.first {
                 let coordinates = placemark.location!.coordinate
-                self.dataManager.getDataFromServer(self.convertCoordinateToString(coordinates))
+//                self.dataManager.getDataFromServer(self.convertCoordinateToString(coordinates))
             }
         })
     }
