@@ -90,11 +90,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         let temperatureFont = UIFont(name: "KhmerSangamMN", size: 98.0)
         let temperatureColor = UIColor(red: 250, green: 255, blue: 252, alpha: 1)
-        let temperatureAttributedString = NSAttributedString(string: "\(String (format: "%.0f", temperature))°", attributes: [NSAttributedStringKey.font: temperatureFont!, NSAttributedStringKey.foregroundColor: temperatureColor])
+        let temperatureAttributedString = NSAttributedString(string: "\(String (format: "%.0f", temperature))°", attributes: [NSAttributedString.Key.font: temperatureFont!, NSAttributedString.Key.foregroundColor: temperatureColor])
         
         let unitTypeFont = UIFont(name: "KhmerSangamMN", size: 72.0)
         let unitTypeColor = UIColor(red: 74, green: 163, blue: 247, alpha: 1)
-        let unitTypeAttributedString = NSAttributedString(string: "\(unitType)", attributes: [NSAttributedStringKey.font : unitTypeFont!, NSAttributedStringKey.foregroundColor : unitTypeColor])
+        let unitTypeAttributedString = NSAttributedString(string: "\(unitType)", attributes: [NSAttributedString.Key.font : unitTypeFont!, NSAttributedString.Key.foregroundColor : unitTypeColor])
         
         attributedString.append(temperatureAttributedString)
         attributedString.append(unitTypeAttributedString)

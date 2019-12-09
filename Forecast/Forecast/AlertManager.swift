@@ -31,7 +31,7 @@ class AlertManager: UIViewController {
     func createAlertWindow(_ alertName: UIViewController) {
         let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.windowLevel = UIWindow.Level.alert + 1
         alertWindow.makeKeyAndVisible()
         alertWindow.rootViewController?.present(alertName, animated: true, completion: nil)
     }

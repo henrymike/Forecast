@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     //MARK: - Lifecycle Methods
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().barTintColor = UIColor(red: 7/255, green: 91/255, blue: 167/255, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor(red: 83/255, green: 167/255, blue: 243/255, alpha: 1.0) //.white 83 167 243
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor(red: 250/255, green: 255/255, blue: 252/255, alpha: 1.0)
         
