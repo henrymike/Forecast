@@ -2,20 +2,24 @@ PODS:
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
+  - PanModal (1.2.5)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - PanModal
 
 SPEC REPOS:
   trunk:
     - Crashlytics
     - Fabric
+    - PanModal
 
 SPEC CHECKSUMS:
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  PanModal: 7c5af3ad4fe22b91508040965bebffb89fb607ae
 
-PODFILE CHECKSUM: 1bdaa069e0796a2e175ca765ba46927237fd60d2
+PODFILE CHECKSUM: b90a9e7a0ed0c7a97f31d3cd712cc2ab826210df
 
 COCOAPODS: 1.8.4

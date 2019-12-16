@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = Fabric;
+			productName = Fabric;
 		};
 		C0E41540D6862472ED7F2FA11669BE1F /* Crashlytics */ = {
 			isa = PBXAggregateTarget;
@@ -25,24 +26,49 @@
 				C9CEFEFAAAEDB8CD947737FA56C849D4 /* PBXTargetDependency */,
 			);
 			name = Crashlytics;
+			productName = Crashlytics;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		11BDE4E7A5428D9642D2EBBDB32CF5CD /* Pods-Forecast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FADA57A716A9BC52B1BD474C60C4A65 /* Pods-Forecast-dummy.m */; };
-		2FBC2210A17AE11323663180A989E6EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6BA9D31E78A380F82C3024145585E16E /* Pods-Forecast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C83B721ACBCEA686402B67343B73E86 /* Pods-Forecast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E429C92AE2DC78C28DA149D8A1B1514 /* PanContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD49D2FE014C6379E7C0F8B54C1286E /* PanContainerView.swift */; };
+		36730230F0155836AF793194F7BEF702 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		3DB448A3E9B64E934BC76FE0FC7621FE /* PanModalPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC83E8438214420E4FBC8750A660A5C1 /* PanModalPresentationDelegate.swift */; };
+		4568EDD1163363300EAC0BA60D5CD7AB /* DimmedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF5477049B30F5499EDA91321549C1 /* DimmedView.swift */; };
+		45CF72ED3BCD237B440ACB19851A589A /* PanModalHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49A9CD85F6C754A4586007A47FE777 /* PanModalHeight.swift */; };
+		5D55EB3EC082E70D15B02C607CF6440E /* PanModalPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BD91FECC9751EA35A078851E3EB596 /* PanModalPresentationAnimator.swift */; };
+		6A88FBA7BC5D3D69E315F9AE2E0DEE3B /* PanModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A62E8A021AEB1B0E39B66929FA3560 /* PanModalPresenter.swift */; };
+		80212493C474B326F66876261FA57C65 /* UIViewController+PanModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CC981424F7F2F25640C0B40F4934BB /* UIViewController+PanModalPresenter.swift */; };
+		8098DAF576BD71BF8514ECF921F96AA3 /* PanModalPresentable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC63612BE68C581996F81F78A342944D /* PanModalPresentable+UIViewController.swift */; };
+		83444168FD31011F7217EFA2684AE936 /* PanModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91ACA5E645AAA8DA29009D588C6C48 /* PanModalAnimator.swift */; };
+		93C1556DDAED08BE604B2B685155F553 /* PanModalPresentable+LayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AAC1B4604DB712A29E0538EA7E523 /* PanModalPresentable+LayoutHelpers.swift */; };
+		A0DE8B1D55C339BFB6E2C638F20F2776 /* Pods-Forecast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D53F7E87BF0F8412E206423FBF218280 /* Pods-Forecast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA3C9D4D751FC3D18C3366DB561AE87F /* Pods-Forecast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D8A338351A3916DC3D9198C4416F /* Pods-Forecast-dummy.m */; };
+		B388DFE51DE5E557512D48A7C5F27BB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		B46152373E6CBC6791AAE85205C33F98 /* PanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61B17213B69E93444CE5CD97D1BECA /* PanModalPresentable.swift */; };
+		BD030684DB491453C175AA7F99C5DE13 /* PanModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C5BC6E28F3A10DABE86E0A9E9D206A /* PanModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1F413745F02F75C0D42753DCB9D79BC /* PanModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906A3422F67A2697CA0E9AD018785CC /* PanModalPresentationController.swift */; };
+		DC1A70CACD0B2ACA2A3FAA5EF320C15B /* PanModal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B3DC2C7A026EF97DD0D4B2B799718C2 /* PanModal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2021C557BAABC303255C299C768CBA8 /* PanModal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52738FF248300A16A971967E5167BE0A /* PanModal-dummy.m */; };
+		F87BF668A74FAF0D05C057C5033DF52F /* PanModalPresentable+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A97B0BDE0C276106993785DD183CB /* PanModalPresentable+Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BED96D4C943CAA5C389B884FF55D1222 /* PBXContainerItemProxy */ = {
+		5085AB818C96EBB0A5A4913BDF3F8796 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = ABB048B191245233986A7CD75FE412A5;
 			remoteInfo = Fabric;
 		};
-		D27AF61FB30960F8E3BA095DE8A247A8 /* PBXContainerItemProxy */ = {
+		76DB2C45877AB67DEFDF50D78EE6CEEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD16B149CC82594F15860A512FDBB6B9;
+			remoteInfo = PanModal;
+		};
+		CA6C852723AB2162F998C94F758D4D63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -59,126 +85,159 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01EF9C97929EC6580CDFBFD97550860A /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
-		0D2EE6842E92944AC257E3FFF2127441 /* Pods-Forecast-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Forecast-acknowledgements.plist"; sourceTree = "<group>"; };
-		0F404E16EC332E8ADB95286B0ACE4D71 /* Pods-Forecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Forecast.release.xcconfig"; sourceTree = "<group>"; };
-		1755CF00D625ABEF4CBC4984C67D298C /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
-		1C83B721ACBCEA686402B67343B73E86 /* Pods-Forecast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Forecast-umbrella.h"; sourceTree = "<group>"; };
-		2164FFB6E4885A9107519E841210A9BC /* Pods-Forecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Forecast.debug.xcconfig"; sourceTree = "<group>"; };
-		25CDD5105AED0CCF798A9846632E1652 /* Crashlytics.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Crashlytics.xcconfig; sourceTree = "<group>"; };
+		08CD593FFFBB925978C7967BEB035D5D /* PanModal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PanModal.xcconfig; sourceTree = "<group>"; };
+		0906A3422F67A2697CA0E9AD018785CC /* PanModalPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationController.swift; path = PanModal/Controller/PanModalPresentationController.swift; sourceTree = "<group>"; };
+		0B570E895E5C61614C720E7504FDAF16 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		14A62E8A021AEB1B0E39B66929FA3560 /* PanModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresenter.swift; path = PanModal/Presenter/PanModalPresenter.swift; sourceTree = "<group>"; };
+		161277983660BBB6908A635083708CFB /* PanModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PanModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16C5BC6E28F3A10DABE86E0A9E9D206A /* PanModal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PanModal.h; path = PanModal/PanModal.h; sourceTree = "<group>"; };
+		1B3DC2C7A026EF97DD0D4B2B799718C2 /* PanModal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PanModal-umbrella.h"; sourceTree = "<group>"; };
+		1D0B3C23EF208F2CAFC59294AA89DF8B /* Pods-Forecast-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Forecast-frameworks.sh"; sourceTree = "<group>"; };
+		1E52B8036D303982193D9E56090C520C /* Fabric.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Fabric.xcconfig; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		343FF74B15CBBCD8183B7F3CEF0B8A52 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
-		3B2BDAF7340F4C0E7D3ABAE856A21D30 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
-		43CA8603B51BA0983C072A6F29FA680E /* Pods-Forecast-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Forecast-acknowledgements.markdown"; sourceTree = "<group>"; };
-		461537160910D4E39172A3ADECDBB5DE /* Fabric.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Fabric.xcconfig; sourceTree = "<group>"; };
-		49BA62A1A1AF641424298F314F5F2254 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
-		4FADA57A716A9BC52B1BD474C60C4A65 /* Pods-Forecast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Forecast-dummy.m"; sourceTree = "<group>"; };
-		6C736423ECDE86C4094F5B752166A490 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
-		88B72E29B4D0D609360F97405C741E60 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1C6C2E7ED8E7FEC328DB2353187F485 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
-		A3778AF3CC0A7FDE0D065D562C0B1494 /* Pods-Forecast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Forecast.modulemap"; sourceTree = "<group>"; };
-		B5B407F8741932E2F1B50BB83FE73774 /* Pods-Forecast-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Forecast-Info.plist"; sourceTree = "<group>"; };
-		BA19F0EEA49B20526FD490DC1974D740 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
-		C3DE8C288662719F827B5F00F644D247 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
-		DF713F8D1825865C761F3A2D212AC56E /* Pods_Forecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Forecast.framework; path = "Pods-Forecast.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF9715D2B56F21D53F8CF1CDD409D503 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		3B49A9CD85F6C754A4586007A47FE777 /* PanModalHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalHeight.swift; path = PanModal/Presentable/PanModalHeight.swift; sourceTree = "<group>"; };
+		43CC981424F7F2F25640C0B40F4934BB /* UIViewController+PanModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+PanModalPresenter.swift"; path = "PanModal/Presenter/UIViewController+PanModalPresenter.swift"; sourceTree = "<group>"; };
+		46377CD047B38D7A266DD20E59554DE6 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		52738FF248300A16A971967E5167BE0A /* PanModal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PanModal-dummy.m"; sourceTree = "<group>"; };
+		538422A31ED5B6DD2461D692618EA16C /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		5A08D8A338351A3916DC3D9198C4416F /* Pods-Forecast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Forecast-dummy.m"; sourceTree = "<group>"; };
+		5AADE9DEB869D0C16415F41FD6440CC3 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		5C82290DB7CFB3D44E630982786A1481 /* Pods-Forecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Forecast.debug.xcconfig"; sourceTree = "<group>"; };
+		5CEB5EA4D0C7139F121D692493AA083E /* PanModal-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PanModal-Info.plist"; sourceTree = "<group>"; };
+		66BD91FECC9751EA35A078851E3EB596 /* PanModalPresentationAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationAnimator.swift; path = PanModal/Animator/PanModalPresentationAnimator.swift; sourceTree = "<group>"; };
+		797BE34B4B08C45E8F8E7DB1871685F7 /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		83B340809A96711108355783B661DE9C /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		8AC11818B9828CB5A4140F96543B2850 /* Pods-Forecast-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Forecast-Info.plist"; sourceTree = "<group>"; };
+		8B91ACA5E645AAA8DA29009D588C6C48 /* PanModalAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalAnimator.swift; path = PanModal/Animator/PanModalAnimator.swift; sourceTree = "<group>"; };
+		9AD49D2FE014C6379E7C0F8B54C1286E /* PanContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanContainerView.swift; path = PanModal/View/PanContainerView.swift; sourceTree = "<group>"; };
+		9C9ACDC4D0CF338B6CCB7A6839BEED18 /* Crashlytics.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Crashlytics.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A83E47D182682A43AC4CE25DE0414988 /* Pods-Forecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Forecast.release.xcconfig"; sourceTree = "<group>"; };
+		B1F66F350D798DD9429560078EE19EE1 /* Pods-Forecast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Forecast.modulemap"; sourceTree = "<group>"; };
+		B33953EFDF738186A9514E6B384183E4 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		BA61B17213B69E93444CE5CD97D1BECA /* PanModalPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentable.swift; path = PanModal/Presentable/PanModalPresentable.swift; sourceTree = "<group>"; };
+		C1A1A1A82357ED117868769EDE45D0B3 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		D0DE2F85E8E83335F660C9F3D6EE23E7 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		D1D2D319C2E7BBA25E0BB4524D9ED0E9 /* Pods-Forecast-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Forecast-acknowledgements.plist"; sourceTree = "<group>"; };
+		D28AAC1B4604DB712A29E0538EA7E523 /* PanModalPresentable+LayoutHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+LayoutHelpers.swift"; path = "PanModal/Presentable/PanModalPresentable+LayoutHelpers.swift"; sourceTree = "<group>"; };
+		D53F7E87BF0F8412E206423FBF218280 /* Pods-Forecast-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Forecast-umbrella.h"; sourceTree = "<group>"; };
+		DF713F8D1825865C761F3A2D212AC56E /* Pods_Forecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E14593E0B15C45C2576201D01786487C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		E932474D8E808484130DAFAC4287C20D /* PanModal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PanModal.modulemap; sourceTree = "<group>"; };
+		EA0A97B0BDE0C276106993785DD183CB /* PanModalPresentable+Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+Defaults.swift"; path = "PanModal/Presentable/PanModalPresentable+Defaults.swift"; sourceTree = "<group>"; };
+		EF92ABBCCD9B9A53314D712B1B12037A /* PanModal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PanModal-prefix.pch"; sourceTree = "<group>"; };
+		EFDF5477049B30F5499EDA91321549C1 /* DimmedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DimmedView.swift; path = PanModal/View/DimmedView.swift; sourceTree = "<group>"; };
+		F4BB439598CFD43321F4E0A033F498E7 /* Pods-Forecast-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Forecast-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FAC57E42E54C67834538F7177A0219D6 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		FC63612BE68C581996F81F78A342944D /* PanModalPresentable+UIViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+UIViewController.swift"; path = "PanModal/Presentable/PanModalPresentable+UIViewController.swift"; sourceTree = "<group>"; };
+		FC83E8438214420E4FBC8750A660A5C1 /* PanModalPresentationDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationDelegate.swift; path = PanModal/Delegate/PanModalPresentationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8AC478D7FC8986E32903E774B75DC385 /* Frameworks */ = {
+		7C3BCC674AF1CD81DBDD6396175BB108 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FBC2210A17AE11323663180A989E6EA /* Foundation.framework in Frameworks */,
+				36730230F0155836AF793194F7BEF702 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB40BE0E20D33B140881111189502FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B388DFE51DE5E557512D48A7C5F27BB2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12DDF81CBF331557CE4969A188171F16 /* Fabric */ = {
+		2E029055EB6D8707A861325C7C663BEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49BA62A1A1AF641424298F314F5F2254 /* FABAttributes.h */,
-				BA19F0EEA49B20526FD490DC1974D740 /* Fabric.h */,
-				29868B33119649758BE16107CA127C05 /* Frameworks */,
-				FCD3078F4044A7CED7373FEBF5FE1E9F /* Support Files */,
-			);
-			name = Fabric;
-			path = Fabric;
-			sourceTree = "<group>";
-		};
-		234218BCADD3050D66931ACEFE4743BD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				25CDD5105AED0CCF798A9846632E1652 /* Crashlytics.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Crashlytics";
-			sourceTree = "<group>";
-		};
-		29868B33119649758BE16107CA127C05 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				88B72E29B4D0D609360F97405C741E60 /* Fabric.framework */,
+				E14593E0B15C45C2576201D01786487C /* Fabric.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4D6A2EF714EDCBB29091A94D88D6B7E4 /* Pods */ = {
+		827F3FBF130A9BD80035D0CA82899064 /* Fabric */ = {
 			isa = PBXGroup;
 			children = (
-				94D785C7194A907AA00F244C7708504A /* Crashlytics */,
-				12DDF81CBF331557CE4969A188171F16 /* Fabric */,
+				B33953EFDF738186A9514E6B384183E4 /* FABAttributes.h */,
+				C1A1A1A82357ED117868769EDE45D0B3 /* Fabric.h */,
+				2E029055EB6D8707A861325C7C663BEF /* Frameworks */,
+				C66E569D1FC6775395E034405EE6C24F /* Support Files */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		9C08CDB55A00DBE1CDAF4B78BE021A52 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E932474D8E808484130DAFAC4287C20D /* PanModal.modulemap */,
+				08CD593FFFBB925978C7967BEB035D5D /* PanModal.xcconfig */,
+				52738FF248300A16A971967E5167BE0A /* PanModal-dummy.m */,
+				5CEB5EA4D0C7139F121D692493AA083E /* PanModal-Info.plist */,
+				EF92ABBCCD9B9A53314D712B1B12037A /* PanModal-prefix.pch */,
+				1B3DC2C7A026EF97DD0D4B2B799718C2 /* PanModal-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PanModal";
+			sourceTree = "<group>";
+		};
+		A9543B62B41E8D3044A07E93EA38FF20 /* PanModal */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF5477049B30F5499EDA91321549C1 /* DimmedView.swift */,
+				9AD49D2FE014C6379E7C0F8B54C1286E /* PanContainerView.swift */,
+				16C5BC6E28F3A10DABE86E0A9E9D206A /* PanModal.h */,
+				8B91ACA5E645AAA8DA29009D588C6C48 /* PanModalAnimator.swift */,
+				3B49A9CD85F6C754A4586007A47FE777 /* PanModalHeight.swift */,
+				BA61B17213B69E93444CE5CD97D1BECA /* PanModalPresentable.swift */,
+				EA0A97B0BDE0C276106993785DD183CB /* PanModalPresentable+Defaults.swift */,
+				D28AAC1B4604DB712A29E0538EA7E523 /* PanModalPresentable+LayoutHelpers.swift */,
+				FC63612BE68C581996F81F78A342944D /* PanModalPresentable+UIViewController.swift */,
+				66BD91FECC9751EA35A078851E3EB596 /* PanModalPresentationAnimator.swift */,
+				0906A3422F67A2697CA0E9AD018785CC /* PanModalPresentationController.swift */,
+				FC83E8438214420E4FBC8750A660A5C1 /* PanModalPresentationDelegate.swift */,
+				14A62E8A021AEB1B0E39B66929FA3560 /* PanModalPresenter.swift */,
+				43CC981424F7F2F25640C0B40F4934BB /* UIViewController+PanModalPresenter.swift */,
+				9C08CDB55A00DBE1CDAF4B78BE021A52 /* Support Files */,
+			);
+			path = PanModal;
+			sourceTree = "<group>";
+		};
+		A987B74DDEF63F50D19BC99A956E7667 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFAB1DCF704904C0994058A990335B9F /* Pods-Forecast */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BF33551826F47C4A21E32D9EE78F45D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D963355430489085309109924DEB4DC0 /* Crashlytics */,
+				827F3FBF130A9BD80035D0CA82899064 /* Fabric */,
+				A9543B62B41E8D3044A07E93EA38FF20 /* PanModal */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5AD89CED2D7CC09E22A5CA88B44B26C5 /* Products */ = {
+		BFAB1DCF704904C0994058A990335B9F /* Pods-Forecast */ = {
 			isa = PBXGroup;
 			children = (
-				DF713F8D1825865C761F3A2D212AC56E /* Pods_Forecast.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		71D4226417352FFBB68AEAFE2D1A7B46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C3DE8C288662719F827B5F00F644D247 /* Crashlytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		94D785C7194A907AA00F244C7708504A /* Crashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				1755CF00D625ABEF4CBC4984C67D298C /* ANSCompatibility.h */,
-				EF9715D2B56F21D53F8CF1CDD409D503 /* Answers.h */,
-				A1C6C2E7ED8E7FEC328DB2353187F485 /* CLSAttributes.h */,
-				6C736423ECDE86C4094F5B752166A490 /* CLSLogging.h */,
-				01EF9C97929EC6580CDFBFD97550860A /* CLSReport.h */,
-				343FF74B15CBBCD8183B7F3CEF0B8A52 /* CLSStackFrame.h */,
-				3B2BDAF7340F4C0E7D3ABAE856A21D30 /* Crashlytics.h */,
-				71D4226417352FFBB68AEAFE2D1A7B46 /* Frameworks */,
-				234218BCADD3050D66931ACEFE4743BD /* Support Files */,
-			);
-			name = Crashlytics;
-			path = Crashlytics;
-			sourceTree = "<group>";
-		};
-		A4E8B0A4EA227456AF38FD9B5F4DAC76 /* Pods-Forecast */ = {
-			isa = PBXGroup;
-			children = (
-				A3778AF3CC0A7FDE0D065D562C0B1494 /* Pods-Forecast.modulemap */,
-				43CA8603B51BA0983C072A6F29FA680E /* Pods-Forecast-acknowledgements.markdown */,
-				0D2EE6842E92944AC257E3FFF2127441 /* Pods-Forecast-acknowledgements.plist */,
-				4FADA57A716A9BC52B1BD474C60C4A65 /* Pods-Forecast-dummy.m */,
-				B5B407F8741932E2F1B50BB83FE73774 /* Pods-Forecast-Info.plist */,
-				1C83B721ACBCEA686402B67343B73E86 /* Pods-Forecast-umbrella.h */,
-				2164FFB6E4885A9107519E841210A9BC /* Pods-Forecast.debug.xcconfig */,
-				0F404E16EC332E8ADB95286B0ACE4D71 /* Pods-Forecast.release.xcconfig */,
+				B1F66F350D798DD9429560078EE19EE1 /* Pods-Forecast.modulemap */,
+				F4BB439598CFD43321F4E0A033F498E7 /* Pods-Forecast-acknowledgements.markdown */,
+				D1D2D319C2E7BBA25E0BB4524D9ED0E9 /* Pods-Forecast-acknowledgements.plist */,
+				5A08D8A338351A3916DC3D9198C4416F /* Pods-Forecast-dummy.m */,
+				1D0B3C23EF208F2CAFC59294AA89DF8B /* Pods-Forecast-frameworks.sh */,
+				8AC11818B9828CB5A4140F96543B2850 /* Pods-Forecast-Info.plist */,
+				D53F7E87BF0F8412E206423FBF218280 /* Pods-Forecast-umbrella.h */,
+				5C82290DB7CFB3D44E630982786A1481 /* Pods-Forecast.debug.xcconfig */,
+				A83E47D182682A43AC4CE25DE0414988 /* Pods-Forecast.release.xcconfig */,
 			);
 			name = "Pods-Forecast";
 			path = "Target Support Files/Pods-Forecast";
@@ -192,12 +251,31 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C7F74D67A856741714F64A5BFD3EF52A /* Targets Support Files */ = {
+		C60B416FEB31E5D27E38C8B13F25E72A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A4E8B0A4EA227456AF38FD9B5F4DAC76 /* Pods-Forecast */,
+				9C9ACDC4D0CF338B6CCB7A6839BEED18 /* Crashlytics.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "../Target Support Files/Crashlytics";
+			sourceTree = "<group>";
+		};
+		C66E569D1FC6775395E034405EE6C24F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E52B8036D303982193D9E56090C520C /* Fabric.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Fabric";
+			sourceTree = "<group>";
+		};
+		CCDDE5F8A25DBAF5CA73A4CE55901213 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				161277983660BBB6908A635083708CFB /* PanModal.framework */,
+				DF713F8D1825865C761F3A2D212AC56E /* Pods_Forecast.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -205,9 +283,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				4D6A2EF714EDCBB29091A94D88D6B7E4 /* Pods */,
-				5AD89CED2D7CC09E22A5CA88B44B26C5 /* Products */,
-				C7F74D67A856741714F64A5BFD3EF52A /* Targets Support Files */,
+				BF33551826F47C4A21E32D9EE78F45D8 /* Pods */,
+				CCDDE5F8A25DBAF5CA73A4CE55901213 /* Products */,
+				A987B74DDEF63F50D19BC99A956E7667 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,43 +297,86 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FCD3078F4044A7CED7373FEBF5FE1E9F /* Support Files */ = {
+		D963355430489085309109924DEB4DC0 /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				461537160910D4E39172A3ADECDBB5DE /* Fabric.xcconfig */,
+				797BE34B4B08C45E8F8E7DB1871685F7 /* ANSCompatibility.h */,
+				D0DE2F85E8E83335F660C9F3D6EE23E7 /* Answers.h */,
+				46377CD047B38D7A266DD20E59554DE6 /* CLSAttributes.h */,
+				5AADE9DEB869D0C16415F41FD6440CC3 /* CLSLogging.h */,
+				538422A31ED5B6DD2461D692618EA16C /* CLSReport.h */,
+				FAC57E42E54C67834538F7177A0219D6 /* CLSStackFrame.h */,
+				83B340809A96711108355783B661DE9C /* Crashlytics.h */,
+				EDEC2FB0B0DEE2AB621773D69C271D98 /* Frameworks */,
+				C60B416FEB31E5D27E38C8B13F25E72A /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Fabric";
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		EDEC2FB0B0DEE2AB621773D69C271D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B570E895E5C61614C720E7504FDAF16 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E681FF4B151656D014EEFAD6CCE3F901 /* Headers */ = {
+		8705DA2E5DC48F320712CA746DD1D402 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BA9D31E78A380F82C3024145585E16E /* Pods-Forecast-umbrella.h in Headers */,
+				DC1A70CACD0B2ACA2A3FAA5EF320C15B /* PanModal-umbrella.h in Headers */,
+				BD030684DB491453C175AA7F99C5DE13 /* PanModal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E928D79E7971DBFA7572D1800800F22D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0DE8B1D55C339BFB6E2C638F20F2776 /* Pods-Forecast-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FE47A7CFF1B496DAF1301B58596D7588 /* Pods-Forecast */ = {
+		AD16B149CC82594F15860A512FDBB6B9 /* PanModal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A2B26A44D7C629FC47D61AA079EDE99 /* Build configuration list for PBXNativeTarget "Pods-Forecast" */;
+			buildConfigurationList = 8F38CE1990CDB1B358C6402136F744CE /* Build configuration list for PBXNativeTarget "PanModal" */;
 			buildPhases = (
-				E681FF4B151656D014EEFAD6CCE3F901 /* Headers */,
-				FA56E4A0E71FE1A367801CB4DC209C23 /* Sources */,
-				8AC478D7FC8986E32903E774B75DC385 /* Frameworks */,
-				780E10D5445F43B9511C1C9EA43DA076 /* Resources */,
+				8705DA2E5DC48F320712CA746DD1D402 /* Headers */,
+				6DF0C107B3EB308A3AD99D62CE074AAD /* Sources */,
+				7C3BCC674AF1CD81DBDD6396175BB108 /* Frameworks */,
+				BA98400A9FFE117837BA2A760AB6762C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99566900822EEB6C8050E393913BD498 /* PBXTargetDependency */,
-				E39F2CF4D2E9A02BA7C59C16AB1A988B /* PBXTargetDependency */,
+			);
+			name = PanModal;
+			productName = PanModal;
+			productReference = 161277983660BBB6908A635083708CFB /* PanModal.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FE47A7CFF1B496DAF1301B58596D7588 /* Pods-Forecast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE63980B4B2E00BBB31ECD838DF2E363 /* Build configuration list for PBXNativeTarget "Pods-Forecast" */;
+			buildPhases = (
+				E928D79E7971DBFA7572D1800800F22D /* Headers */,
+				8C8D873B1EC33AD6082B02195689624B /* Sources */,
+				EB40BE0E20D33B140881111189502FC5 /* Frameworks */,
+				9E801219F81AA780AFA329429EBD96C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E9DF47AC4BEA38947390422E30FBBB6 /* PBXTargetDependency */,
+				97E2AA3F91AAB9A5DF4B47BED4C1EA50 /* PBXTargetDependency */,
+				AB465C2D3F99BC34B1FBF4E56B37A9D3 /* PBXTargetDependency */,
 			);
 			name = "Pods-Forecast";
 			productName = "Pods-Forecast";
@@ -269,7 +390,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -280,19 +401,27 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 5AD89CED2D7CC09E22A5CA88B44B26C5 /* Products */;
+			productRefGroup = CCDDE5F8A25DBAF5CA73A4CE55901213 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C0E41540D6862472ED7F2FA11669BE1F /* Crashlytics */,
 				ABB048B191245233986A7CD75FE412A5 /* Fabric */,
+				AD16B149CC82594F15860A512FDBB6B9 /* PanModal */,
 				FE47A7CFF1B496DAF1301B58596D7588 /* Pods-Forecast */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		780E10D5445F43B9511C1C9EA43DA076 /* Resources */ = {
+		9E801219F81AA780AFA329429EBD96C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA98400A9FFE117837BA2A760AB6762C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,22 +431,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA56E4A0E71FE1A367801CB4DC209C23 /* Sources */ = {
+		6DF0C107B3EB308A3AD99D62CE074AAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11BDE4E7A5428D9642D2EBBDB32CF5CD /* Pods-Forecast-dummy.m in Sources */,
+				4568EDD1163363300EAC0BA60D5CD7AB /* DimmedView.swift in Sources */,
+				2E429C92AE2DC78C28DA149D8A1B1514 /* PanContainerView.swift in Sources */,
+				F2021C557BAABC303255C299C768CBA8 /* PanModal-dummy.m in Sources */,
+				83444168FD31011F7217EFA2684AE936 /* PanModalAnimator.swift in Sources */,
+				45CF72ED3BCD237B440ACB19851A589A /* PanModalHeight.swift in Sources */,
+				F87BF668A74FAF0D05C057C5033DF52F /* PanModalPresentable+Defaults.swift in Sources */,
+				93C1556DDAED08BE604B2B685155F553 /* PanModalPresentable+LayoutHelpers.swift in Sources */,
+				8098DAF576BD71BF8514ECF921F96AA3 /* PanModalPresentable+UIViewController.swift in Sources */,
+				B46152373E6CBC6791AAE85205C33F98 /* PanModalPresentable.swift in Sources */,
+				5D55EB3EC082E70D15B02C607CF6440E /* PanModalPresentationAnimator.swift in Sources */,
+				D1F413745F02F75C0D42753DCB9D79BC /* PanModalPresentationController.swift in Sources */,
+				3DB448A3E9B64E934BC76FE0FC7621FE /* PanModalPresentationDelegate.swift in Sources */,
+				6A88FBA7BC5D3D69E315F9AE2E0DEE3B /* PanModalPresenter.swift in Sources */,
+				80212493C474B326F66876261FA57C65 /* UIViewController+PanModalPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C8D873B1EC33AD6082B02195689624B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA3C9D4D751FC3D18C3366DB561AE87F /* Pods-Forecast-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99566900822EEB6C8050E393913BD498 /* PBXTargetDependency */ = {
+		2E9DF47AC4BEA38947390422E30FBBB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Crashlytics;
 			target = C0E41540D6862472ED7F2FA11669BE1F /* Crashlytics */;
-			targetProxy = D27AF61FB30960F8E3BA095DE8A247A8 /* PBXContainerItemProxy */;
+			targetProxy = CA6C852723AB2162F998C94F758D4D63 /* PBXContainerItemProxy */;
+		};
+		97E2AA3F91AAB9A5DF4B47BED4C1EA50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Fabric;
+			target = ABB048B191245233986A7CD75FE412A5 /* Fabric */;
+			targetProxy = 5085AB818C96EBB0A5A4913BDF3F8796 /* PBXContainerItemProxy */;
+		};
+		AB465C2D3F99BC34B1FBF4E56B37A9D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PanModal;
+			target = AD16B149CC82594F15860A512FDBB6B9 /* PanModal */;
+			targetProxy = 76DB2C45877AB67DEFDF50D78EE6CEEF /* PBXContainerItemProxy */;
 		};
 		C9CEFEFAAAEDB8CD947737FA56C849D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -325,16 +487,10 @@
 			target = ABB048B191245233986A7CD75FE412A5 /* Fabric */;
 			targetProxy = D465047540D12FD9D95291AE82A76DB9 /* PBXContainerItemProxy */;
 		};
-		E39F2CF4D2E9A02BA7C59C16AB1A988B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Fabric;
-			target = ABB048B191245233986A7CD75FE412A5 /* Fabric */;
-			targetProxy = BED96D4C943CAA5C389B884FF55D1222 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -382,19 +538,206 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+		405D4A7F2C741D66BD62296D5132B678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C82290DB7CFB3D44E630982786A1481 /* Pods-Forecast.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		453687E0AE5ADB0B6502F8A405ADAE50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9ACDC4D0CF338B6CCB7A6839BEED18 /* Crashlytics.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58BD04FA3A6FD57D161865537D2EA3EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08CD593FFFBB925978C7967BEB035D5D /* PanModal.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PanModal/PanModal-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PanModal/PanModal-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PanModal/PanModal.modulemap";
+				PRODUCT_MODULE_NAME = PanModal;
+				PRODUCT_NAME = PanModal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		69E5202500B022B11CEA8681C9D7C194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A83E47D182682A43AC4CE25DE0414988 /* Pods-Forecast.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85702DFFE05184B635A52C20262B298B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E52B8036D303982193D9E56090C520C /* Fabric.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8E1C5CD985CABC6A595D5DA7C36FEF4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9ACDC4D0CF338B6CCB7A6839BEED18 /* Crashlytics.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBD2A9BC9BFDDE1B5295689341088AA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08CD593FFFBB925978C7967BEB035D5D /* PanModal.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PanModal/PanModal-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PanModal/PanModal-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PanModal/PanModal.modulemap";
+				PRODUCT_MODULE_NAME = PanModal;
+				PRODUCT_NAME = PanModal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7CBF757DBC9F0D5B8C7252F3F9B0244 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E52B8036D303982193D9E56090C520C /* Fabric.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -445,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -458,144 +801,14 @@
 			};
 			name = Debug;
 		};
-		8548AC522B2EFC8F87C010366841E234 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 461537160910D4E39172A3ADECDBB5DE /* Fabric.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C8B76C3D2DC5BFA155F9060C3AEB12A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F404E16EC332E8ADB95286B0ACE4D71 /* Pods-Forecast.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CDFCF98E7F9FB4406E116ED6500B19DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25CDD5105AED0CCF798A9846632E1652 /* Crashlytics.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		CE6F1011AE3E3CA432D5EB7085D197E9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 461537160910D4E39172A3ADECDBB5DE /* Fabric.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D43B3DDF5D3BF6757ED79FD2D914D7C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25CDD5105AED0CCF798A9846632E1652 /* Crashlytics.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		ED35071FE44F20713B98D15088475923 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2164FFB6E4885A9107519E841210A9BC /* Pods-Forecast.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Forecast/Pods-Forecast.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		13B185864087F75D556AC109B2D70BF7 /* Build configuration list for PBXAggregateTarget "Fabric" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8548AC522B2EFC8F87C010366841E234 /* Debug */,
-				CE6F1011AE3E3CA432D5EB7085D197E9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1A2B26A44D7C629FC47D61AA079EDE99 /* Build configuration list for PBXNativeTarget "Pods-Forecast" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED35071FE44F20713B98D15088475923 /* Debug */,
-				C8B76C3D2DC5BFA155F9060C3AEB12A2 /* Release */,
+				C7CBF757DBC9F0D5B8C7252F3F9B0244 /* Debug */,
+				85702DFFE05184B635A52C20262B298B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -603,8 +816,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
-				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
+				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F38CE1990CDB1B358C6402136F744CE /* Build configuration list for PBXNativeTarget "PanModal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58BD04FA3A6FD57D161865537D2EA3EB /* Debug */,
+				BBD2A9BC9BFDDE1B5295689341088AA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -612,8 +834,17 @@
 		A084C0089544D8EEE7DA4C6D8EEEF9ED /* Build configuration list for PBXAggregateTarget "Crashlytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D43B3DDF5D3BF6757ED79FD2D914D7C7 /* Debug */,
-				CDFCF98E7F9FB4406E116ED6500B19DD /* Release */,
+				453687E0AE5ADB0B6502F8A405ADAE50 /* Debug */,
+				8E1C5CD985CABC6A595D5DA7C36FEF4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE63980B4B2E00BBB31ECD838DF2E363 /* Build configuration list for PBXNativeTarget "Pods-Forecast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405D4A7F2C741D66BD62296D5132B678 /* Debug */,
+				69E5202500B022B11CEA8681C9D7C194 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
