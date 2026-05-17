@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import Crashlytics
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -40,7 +39,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
             let address = searchBar.text!
             searchBar.resignFirstResponder()
             locManager.geocodeAddress(address)
-            Answers.logCustomEvent(withName: "Search Query", customAttributes: ["Entered Text" : address])
         } else {
             print("Search: Server Not Available")
             alertManager.dataAlert()
@@ -197,7 +195,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @objc func reverseGeocodeReceived() {
         print("Reverse Geocoded Location Received")
         locationLabel.text = locManager.geocodedLocation
-        Answers.logCustomEvent(withName: "Location", customAttributes: ["Returned Location" : locManager.geocodedLocation])
     }
 
     

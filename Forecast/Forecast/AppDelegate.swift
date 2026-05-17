@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,16 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
         UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor(red: 250/255, green: 255/255, blue: 252/255, alpha: 1.0)
-        
-        // Fabric with Crashlytics
-        let isUserOptedOutofTracking = UserDefaults.standard.bool(forKey: "FabricOptOut")
-        switch isUserOptedOutofTracking {
-        case false:
-            Fabric.with([Crashlytics.self])
-        case true:
-            break
-        }
-        
+
         return true
     }
 
