@@ -27,9 +27,18 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func setUpLocationMonitoring() {
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        if CLLocationManager.locationServicesEnabled() {
-            handleAuthorizationStatus(locManager.authorizationStatus)
+        
+        // Avoid synchronous checks that may block the main thread. Rely on the
+        // authorization callback to proceed. If status is not determined, request it.
+        let status = locManager.authorizationStatus
+        if status == .notDetermined {
+            locManager.requestWhenInUseAuthorization()
+            return
         }
+        
+        // For other states, defer to the centralized handler. This will be called
+        // immediately here and also from `locationManagerDidChangeAuthorization`.
+        handleAuthorizationStatus(status)
     }
 
     private func handleAuthorizationStatus(_ status: CLAuthorizationStatus) {

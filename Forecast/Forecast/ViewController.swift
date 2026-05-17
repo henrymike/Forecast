@@ -49,7 +49,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func creditsButtonPressed(_ sender: UIButton) {
-        if let url = URL(string: "https://open-meteo.com/") {
+        if let url = forecast.attributionURL {
             let viewcont = SFSafariViewController(url: url)
             present(viewcont, animated: true, completion: nil)
         }

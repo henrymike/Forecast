@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */; };
 		559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2D1BE937DC00D45FD4 /* Weather.swift */; };
 		559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A2F331BE9450000D45FD4 /* CoreLocation.framework */; };
+		55B0EFFF2FB9C4E000D45FD4 /* ForecastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EFFE2FB9C4E000D45FD4 /* ForecastApp.swift */; };
+		55B0F0012FB9C4E000D45FD4 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F0002FB9C4E000D45FD4 /* ForecastView.swift */; };
+		55B0F0032FB9C4E000D45FD4 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0F0022FB9C4E000D45FD4 /* ForecastViewModel.swift */; };
 		55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA04661BFE54E9009DDBD7 /* LocManager.swift */; };
 		55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB514E1C3C41E900E99A3B /* AlertManager.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +33,10 @@
 		559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		559A2F2D1BE937DC00D45FD4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		559A2F331BE9450000D45FD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		55B0EFFD2FB9C4E000D45FD4 /* Forecast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Forecast.entitlements; sourceTree = "<group>"; };
+		55B0EFFE2FB9C4E000D45FD4 /* ForecastApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastApp.swift; sourceTree = "<group>"; };
+		55B0F0002FB9C4E000D45FD4 /* ForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
+		55B0F0022FB9C4E000D45FD4 /* ForecastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		55CA04661BFE54E9009DDBD7 /* LocManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocManager.swift; sourceTree = "<group>"; };
 		55FB514E1C3C41E900E99A3B /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +81,11 @@
 		559A2F111BE92D2900D45FD4 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				55B0EFFE2FB9C4E000D45FD4 /* ForecastApp.swift */,
 				559A2F121BE92D2900D45FD4 /* AppDelegate.swift */,
+				55B0EFFD2FB9C4E000D45FD4 /* Forecast.entitlements */,
+				55B0F0002FB9C4E000D45FD4 /* ForecastView.swift */,
+				55B0F0022FB9C4E000D45FD4 /* ForecastViewModel.swift */,
 				559A2F141BE92D2900D45FD4 /* ViewController.swift */,
 				559A2F2A1BE92E0800D45FD4 /* Managers */,
 				559A2F161BE92D2900D45FD4 /* Main.storyboard */,
@@ -106,6 +117,7 @@
 				559A2F0B1BE92D2900D45FD4 /* Sources */,
 				559A2F0C1BE92D2900D45FD4 /* Frameworks */,
 				559A2F0D1BE92D2900D45FD4 /* Resources */,
+				8CC3E99E2FB956A7009B4069 /* Update Build Number */,
 			);
 			buildRules = (
 			);
@@ -122,13 +134,13 @@
 		559A2F071BE92D2900D45FD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 2650;
 				ORGANIZATIONNAME = "Mike Henry";
 				TargetAttributes = {
 					559A2F0E1BE92D2900D45FD4 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 6K26YVY47S;
 						LastSwiftMigration = 1120;
 					};
 				};
@@ -164,6 +176,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8CC3E99E2FB956A7009B4069 /* Update Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"${TARGET_BUILD_DIR}\"\nbuildPlist=\"${TARGET_BUILD_DIR}\"/\"${INFOPLIST_PATH}\"\n\n# Increment the build number to match the git version\nsvnRevision=`git log --oneline | wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $svnRevision\" \"$buildPlist\"\n\nbundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$buildPlist\")\nbundleShortVersionString=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$buildPlist\")\n\n# Update the Settings.bundle\nnewVersion=\"${bundleShortVersionString} (${bundleVersion})\"\n/usr/libexec/PlistBuddy \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\"/Settings.bundle/Root.plist -c \"set PreferenceSpecifiers:1:DefaultValue $newVersion\"\necho \"newVersion: ${newVersion}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		559A2F0B1BE92D2900D45FD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -172,7 +206,10 @@
 				55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */,
 				559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */,
 				559A2F151BE92D2900D45FD4 /* ViewController.swift in Sources */,
+				55B0EFFF2FB9C4E000D45FD4 /* ForecastApp.swift in Sources */,
+				55B0F0012FB9C4E000D45FD4 /* ForecastView.swift in Sources */,
 				559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */,
+				55B0F0032FB9C4E000D45FD4 /* ForecastViewModel.swift in Sources */,
 				55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */,
 				559A2F131BE92D2900D45FD4 /* AppDelegate.swift in Sources */,
 			);
@@ -204,6 +241,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -223,6 +261,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -232,8 +271,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mike Henry (47JA6XWPPH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -252,6 +293,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -260,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -279,6 +322,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -288,8 +332,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mike Henry (47JA6XWPPH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -301,7 +347,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -311,16 +359,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Forecast/Forecast.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Forecast/Forecast-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -332,16 +386,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Forecast/Forecast.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Forecast/Forecast-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
