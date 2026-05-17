@@ -8,7 +8,7 @@
 
 import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window :UIWindow?
@@ -16,11 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Lifecycle Methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 7/255, green: 91/255, blue: 167/255, alpha: 1.0)
-        UINavigationBar.appearance().tintColor = UIColor(red: 83/255, green: 167/255, blue: 243/255, alpha: 1.0) //.white 83 167 243
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        UINavigationBar.appearance().isTranslucent = false
-        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor(red: 250/255, green: 255/255, blue: 252/255, alpha: 1.0)
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = UIColor(red: 7/255, green: 91/255, blue: 167/255, alpha: 1.0)
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.standardAppearance = navigationBarAppearance
+        navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        navigationBar.compactAppearance = navigationBarAppearance
+        navigationBar.compactScrollEdgeAppearance = navigationBarAppearance
+        navigationBar.tintColor = UIColor(red: 83/255, green: 167/255, blue: 243/255, alpha: 1.0)
+
+        UISearchTextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor(red: 250/255, green: 255/255, blue: 252/255, alpha: 1.0)
 
         return true
     }

@@ -9,13 +9,12 @@
 import UIKit
 import CoreLocation
 
-let baseURLString = "api.darksky.net"
+let baseURLString = "api.open-meteo.com"
 
 class DataManager: NSObject, CLLocationManagerDelegate {
 
     //MARK: - Properties
     static let sharedInstance = DataManager()
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var alertManager = AlertManager.sharedInstance
     
     
@@ -27,9 +26,9 @@ class DataManager: NSObject, CLLocationManagerDelegate {
                 return
             }
             let decoder = JSONDecoder()
-            if let forecastDataResponse = try? decoder.decode(WeatherCurrentInfo.self, from: forecastData) {
+            if let forecastDataResponse = try? decoder.decode(OpenMeteoForecastResponse.self, from: forecastData) {
                 DispatchQueue.main.async() {
-                    completionHandler(forecastDataResponse.currently, error)
+                    completionHandler(Weather(openMeteoResponse: forecastDataResponse), error)
                 }
             } else {
                 DispatchQueue.main.async() {
@@ -40,18 +39,10 @@ class DataManager: NSObject, CLLocationManagerDelegate {
     }
     
     private static func getForecastDataWebRequest(coordinateString: String, completionHandler: @escaping (Data?, Error?) -> Void) {
-        //Fetch API Key from plist
-        var keys :NSDictionary?
-        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
-            keys = NSDictionary(contentsOfFile: path)
+        guard let request = prepareWebRequest(coordinateString: coordinateString) else {
+            completionHandler(nil, URLError(.badURL))
+            return
         }
-        var apiKey: String?
-        if let dict = keys {
-            apiKey = dict["darkSkyAPIKey"] as? String
-//            print("API KEY:\(apiKey)")
-        }
-        
-        let request = prepareWebRequest("https://\(baseURLString)/forecast/\(apiKey!)/\(coordinateString)")
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 10
@@ -74,8 +65,32 @@ class DataManager: NSObject, CLLocationManagerDelegate {
         task.resume()
     }
     
-    private static func prepareWebRequest(_ url: String) -> URLRequest {
-        var request = URLRequest(url: URL(string: url)!)
+    private static func prepareWebRequest(coordinateString: String) -> URLRequest? {
+        let coordinates = coordinateString.split(separator: ",")
+        guard coordinates.count == 2 else {
+            return nil
+        }
+
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = baseURLString
+        components.path = "/v1/forecast"
+        components.queryItems = [
+            URLQueryItem(name: "latitude", value: String(coordinates[0])),
+            URLQueryItem(name: "longitude", value: String(coordinates[1])),
+            URLQueryItem(name: "current", value: "temperature_2m,weather_code,wind_speed_10m,wind_direction_10m"),
+            URLQueryItem(name: "hourly", value: "precipitation_probability"),
+            URLQueryItem(name: "temperature_unit", value: "fahrenheit"),
+            URLQueryItem(name: "wind_speed_unit", value: "mph"),
+            URLQueryItem(name: "timezone", value: "auto"),
+            URLQueryItem(name: "forecast_hours", value: "1")
+        ]
+
+        guard let url = components.url else {
+            return nil
+        }
+
+        var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         return request

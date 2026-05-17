@@ -12,7 +12,6 @@ import SafariServices
 class ViewController: UIViewController, UISearchBarDelegate {
 
     //MARK: - Properties
-    var networkManager = NetworkManager.sharedInstance
     var dataManager = DataManager.sharedInstance
     var locManager = LocationManager.sharedInstance
     var alertManager = AlertManager.sharedInstance
@@ -35,14 +34,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     //MARK: - Interactivity Methods        
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if networkManager.serverAvailable {
-            let address = searchBar.text!
-            searchBar.resignFirstResponder()
-            locManager.geocodeAddress(address)
-        } else {
-            print("Search: Server Not Available")
-            alertManager.dataAlert()
+        guard let address = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), !address.isEmpty else {
+            return
         }
+
+        searchBar.resignFirstResponder()
+        locManager.geocodeAddress(address)
     }
     
     @IBAction func reloadCurrentWeather(_ sender: UIBarButtonItem) {
@@ -52,7 +49,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func creditsButtonPressed(_ sender: UIButton) {
-        if let url = URL(string: "https://darksky.net/poweredby/") {
+        if let url = URL(string: "https://open-meteo.com/") {
             let viewcont = SFSafariViewController(url: url)
             present(viewcont, animated: true, completion: nil)
         }
@@ -170,26 +167,21 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     @objc func newLocationReceived() {
         print("User Location Received")
-//        if networkManager.serverAvailable {
-//            dataManager.getDataFromServer(locManager.convertCoordinateToString(locManager.userLocationCoordinates))
-            
-            DataManager.getForecastData(coordinateString: locManager.convertCoordinateToString(locManager.userLocationCoordinates)) { (forecastData, error) in
-                if let _ = error {
-                    //handle error?
+
+        DataManager.getForecastData(coordinateString: locManager.convertCoordinateToString(locManager.userLocationCoordinates)) { [weak self] forecastData, error in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
+                if error != nil {
+                    strongSelf.alertManager.dataAlert()
                 } else if let forecast = forecastData {
-                    DispatchQueue.main.async() {
-                        [weak self] in
-                        guard let strongSelf = self else { return }
-                        strongSelf.forecast = forecast
-//                        DispatchQueue.main.async {
-                        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "receivedDataFromServer"), object: nil))
-//                                        }
-//                        strongSelf.displayCurrentForecast()
-                    }
+                    strongSelf.forecast = forecast
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "receivedDataFromServer"), object: nil))
+                } else {
+                    strongSelf.alertManager.dataAlert()
                 }
-//                print("Data: \(data)")
             }
-//        }
+        }
     }
     
     @objc func reverseGeocodeReceived() {
@@ -201,22 +193,17 @@ class ViewController: UIViewController, UISearchBarDelegate {
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        locManager.setUpLocationMonitoring()
-        
-        //Dismiss keyboard from Search bar on tap gesture
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.newDataReceived), name: NSNotification.Name(rawValue: "receivedDataFromServer"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.newLocationReceived), name: NSNotification.Name(rawValue: "newUserLocationReceived"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reverseGeocodeReceived), name: NSNotification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
 
+        locManager.setUpLocationMonitoring()
+        
+        //Dismiss keyboard from Search bar on tap gesture
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
-    
 }

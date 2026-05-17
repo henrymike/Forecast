@@ -97,7 +97,7 @@
                                             <constraint firstAttribute="height" constant="20" id="kP9-JR-3Sp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="11"/>
-                                        <state key="normal" title="Powered by Dark Sky">
+                                        <state key="normal" title="Powered by Open-Meteo">
                                             <color key="titleColor" red="0.32549019610000002" green="0.65490196079999996" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>

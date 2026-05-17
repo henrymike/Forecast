@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
@@ -18,7 +19,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var alertManager = AlertManager.sharedInstance
     var userLocationCoordinates = CLLocationCoordinate2D()
     var currentLocation = ""
-    let geocoder = CLGeocoder()
     var geocodedLocation = ""
     
     
@@ -28,19 +28,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyKilometer
         if CLLocationManager.locationServicesEnabled() {
-            switch CLLocationManager.authorizationStatus() {
-            case .authorizedAlways, .authorizedWhenInUse:
-                print("Location authorized")
-                locManager.requestLocation()
-            case .denied, .restricted:
-                alertManager.locServicesAlert()
-                print("Location services disabled/restricted")
-            case .notDetermined:
-                print("Turn location services on in Settings")
-                if (locManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization))) {
-                    locManager.requestWhenInUseAuthorization()
-                }
-            }
+            handleAuthorizationStatus(locManager.authorizationStatus)
+        }
+    }
+
+    private func handleAuthorizationStatus(_ status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Location authorized")
+            locManager.requestLocation()
+        case .denied, .restricted:
+            alertManager.locServicesAlert()
+            print("Location services disabled/restricted")
+        case .notDetermined:
+            print("Turn location services on in Settings")
+            locManager.requestWhenInUseAuthorization()
+        @unknown default:
+            alertManager.locServicesAlert()
+            print("Unknown location authorization status")
         }
     }
     
@@ -48,15 +53,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     //MARK: - Geocoding Methods
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            DispatchQueue.main.async(execute: { ()
-                NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newUserLocationReceived"), object: nil))
-            })
-        default:
-            return
-        }
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        handleAuthorizationStatus(manager.authorizationStatus)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -69,26 +67,29 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         
         
         let location = CLLocation(latitude: userLocationCoordinates.latitude, longitude: userLocationCoordinates.longitude)
-        
-        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
-            if error != nil {
-                print("Reverse geocoder failed with error" + error!.localizedDescription)
+        guard let request = MKReverseGeocodingRequest(location: location) else {
+            print("Unable to create reverse geocoding request")
+            return
+        }
+
+        request.getMapItems { mapItems, error in
+            if let error = error {
+                print("Reverse geocoder failed with error" + error.localizedDescription)
                 return
             }
-            
-            if placemarks!.count > 0 {
-                let currentLoc = placemarks![0]
-                print("Current Location: \(currentLoc.locality!)")
-                self.currentLocation = String(currentLoc.locality!)
+
+            if let currentLoc = mapItems?.first {
+                let locationName = currentLoc.addressRepresentations?.cityName ?? currentLoc.name ?? ""
+                print("Current Location: \(locationName)")
+                self.currentLocation = locationName
                 
                 DispatchQueue.main.async(execute: { ()
                     NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newUserLocationReceived"), object: nil))
                 })
-            }
-            else {
+            } else {
                 print("Problem with the user location geocoded data")
             }
-        })
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -102,25 +103,45 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func geocodeAddress(_ address: String) {
-        geocoder.geocodeAddressString(address, completionHandler: {
-            (placemarks, error) -> Void in
-            if((error) != nil){
-                print("Error: ", error ?? "no error provided")
+        guard let request = MKGeocodingRequest(addressString: address) else {
+            print("Unable to create geocoding request")
+            return
+        }
+
+        request.getMapItems { mapItems, error in
+            if let error = error {
+                print("Error: ", error)
                 return
             }
-            if let placemark = placemarks?.first {
-                let coordinates = placemark.location!.coordinate
-//                self.dataManager.getDataFromServer(self.convertCoordinateToString(coordinates))
+
+            if let mapItem = mapItems?.first {
+                let coordinates = mapItem.location.coordinate
+
+                self.userLocationCoordinates = coordinates
+                DispatchQueue.main.async(execute: { ()
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "newUserLocationReceived"), object: nil))
+                })
             }
-        })
+        }
     }
     
     func reverseGeocodeCoords(_ lat:Double, long:Double){
         let location = CLLocation(latitude: lat, longitude: long)
-        geocoder.reverseGeocodeLocation(location) { (placemark, error) -> Void in
-            if let locality = placemark?.first?.locality, let adminArea = placemark?.first?.administrativeArea {
-                self.geocodedLocation = locality + ", " + adminArea
-                print("Reverse Geocoded Location: \(self.geocodedLocation)")
+        guard let request = MKReverseGeocodingRequest(location: location) else {
+            print("Unable to create reverse geocoding request")
+            return
+        }
+
+        request.getMapItems { mapItems, error in
+            if let error = error {
+                print("Reverse geocoder failed with error" + error.localizedDescription)
+                return
+            }
+
+            if let mapItem = mapItems?.first,
+               let geocodedLocation = mapItem.addressRepresentations?.cityWithContext ?? mapItem.name {
+                self.geocodedLocation = geocodedLocation
+                print("Reverse Geocoded Location: \(geocodedLocation)")
                 
                 DispatchQueue.main.async(execute: { ()
                     NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "reverseGeocodedLocationReceived"), object: nil))

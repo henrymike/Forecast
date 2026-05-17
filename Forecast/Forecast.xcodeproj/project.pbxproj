@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5576CBB71D9CB22D00A7B211 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5576CBB61D9CB22D00A7B211 /* Keys.plist */; };
 		559A2F131BE92D2900D45FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F121BE92D2900D45FD4 /* AppDelegate.swift */; };
 		559A2F151BE92D2900D45FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F141BE92D2900D45FD4 /* ViewController.swift */; };
 		559A2F181BE92D2900D45FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559A2F161BE92D2900D45FD4 /* Main.storyboard */; };
 		559A2F1A1BE92D2900D45FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 559A2F191BE92D2900D45FD4 /* Assets.xcassets */; };
 		559A2F1D1BE92D2900D45FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559A2F1B1BE92D2900D45FD4 /* LaunchScreen.storyboard */; };
-		559A2F271BE92DB000D45FD4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F261BE92DB000D45FD4 /* Reachability.m */; };
-		559A2F291BE92DFE00D45FD4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */; };
 		559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */; };
 		559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A2F2D1BE937DC00D45FD4 /* Weather.swift */; };
 		559A2F341BE9450000D45FD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559A2F331BE9450000D45FD4 /* CoreLocation.framework */; };
@@ -23,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5576CBB61D9CB22D00A7B211 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		559A2F0F1BE92D2900D45FD4 /* Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		559A2F121BE92D2900D45FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		559A2F141BE92D2900D45FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,10 +27,6 @@
 		559A2F191BE92D2900D45FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		559A2F1C1BE92D2900D45FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		559A2F1E1BE92D2900D45FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		559A2F241BE92DAF00D45FD4 /* Forecast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Forecast-Bridging-Header.h"; sourceTree = "<group>"; };
-		559A2F251BE92DB000D45FD4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		559A2F261BE92DB000D45FD4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		559A2F2D1BE937DC00D45FD4 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		559A2F331BE9450000D45FD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -89,8 +81,6 @@
 				559A2F191BE92D2900D45FD4 /* Assets.xcassets */,
 				559A2F1B1BE92D2900D45FD4 /* LaunchScreen.storyboard */,
 				559A2F1E1BE92D2900D45FD4 /* Info.plist */,
-				5576CBB61D9CB22D00A7B211 /* Keys.plist */,
-				559A2F241BE92DAF00D45FD4 /* Forecast-Bridging-Header.h */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -101,10 +91,7 @@
 				559A2F2B1BE92EAA00D45FD4 /* DataManager.swift */,
 				55CA04661BFE54E9009DDBD7 /* LocManager.swift */,
 				55FB514E1C3C41E900E99A3B /* AlertManager.swift */,
-				559A2F281BE92DFE00D45FD4 /* NetworkManager.swift */,
 				559A2F2D1BE937DC00D45FD4 /* Weather.swift */,
-				559A2F251BE92DB000D45FD4 /* Reachability.h */,
-				559A2F261BE92DB000D45FD4 /* Reachability.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -169,7 +156,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5576CBB71D9CB22D00A7B211 /* Keys.plist in Resources */,
 				559A2F1D1BE92D2900D45FD4 /* LaunchScreen.storyboard in Resources */,
 				559A2F1A1BE92D2900D45FD4 /* Assets.xcassets in Resources */,
 				559A2F181BE92D2900D45FD4 /* Main.storyboard in Resources */,
@@ -184,10 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FB514F1C3C41E900E99A3B /* AlertManager.swift in Sources */,
-				559A2F291BE92DFE00D45FD4 /* NetworkManager.swift in Sources */,
 				559A2F2C1BE92EAA00D45FD4 /* DataManager.swift in Sources */,
 				559A2F151BE92D2900D45FD4 /* ViewController.swift in Sources */,
-				559A2F271BE92DB000D45FD4 /* Reachability.m in Sources */,
 				559A2F2E1BE937DC00D45FD4 /* Weather.swift in Sources */,
 				55CA04671BFE54E9009DDBD7 /* LocManager.swift in Sources */,
 				559A2F131BE92D2900D45FD4 /* AppDelegate.swift in Sources */,
@@ -264,7 +248,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -314,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -331,6 +315,7 @@
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,6 +336,7 @@
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
