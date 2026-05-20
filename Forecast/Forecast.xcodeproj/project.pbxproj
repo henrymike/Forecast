@@ -194,7 +194,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"${TARGET_BUILD_DIR}\"\nbuildPlist=\"${TARGET_BUILD_DIR}\"/\"${INFOPLIST_PATH}\"\n\n# Increment the build number to match the git version\nsvnRevision=`git log --oneline | wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $svnRevision\" \"$buildPlist\"\n\nbundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$buildPlist\")\nbundleShortVersionString=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$buildPlist\")\n\n# Update the Settings.bundle\nnewVersion=\"${bundleShortVersionString} (${bundleVersion})\"\n/usr/libexec/PlistBuddy \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\"/Settings.bundle/Root.plist -c \"set PreferenceSpecifiers:1:DefaultValue $newVersion\"\necho \"newVersion: ${newVersion}\"\n";
+			shellScript = "set -eu\n\nbuild_plist=\"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nbuild_number=\"$(git -C \"${SRCROOT}\" rev-list --count HEAD | tr -d '[:space:]')\"\n\nif [ -z \"${build_number}\" ]; then\n    echo \"error: Could not determine build number from git commit count.\"\n    exit 1\nfi\n\nif [ ! -f \"${build_plist}\" ]; then\n    echo \"error: Build Info.plist not found at ${build_plist}.\"\n    exit 1\nfi\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${build_number}\" \"${build_plist}\" || \\\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string ${build_number}\" \"${build_plist}\"\n\nbundle_short_version_string=\"$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"${build_plist}\")\"\necho \"Updated build number to ${bundle_short_version_string} (${build_number})\"\n\nsettings_plist=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Settings.bundle/Root.plist\"\nif [ -f \"${settings_plist}\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${bundle_short_version_string} (${build_number})\" \"${settings_plist}\"\nelse\n    echo \"No Settings.bundle found; skipping settings version update.\"\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -364,6 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,6 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K26YVY47S;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				LD_RUNPATH_SEARCH_PATHS = (
