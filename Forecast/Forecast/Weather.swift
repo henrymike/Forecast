@@ -10,6 +10,9 @@ import Foundation
 import WeatherKit
 
 class Weather: NSObject {
+    static let appleWeatherTrademark = "\u{F8FF} Weather"
+    static let appleWeatherLegalAttributionURL = URL(string: "https://weatherkit.apple.com/legal-attribution.html")!
+
     var summary: String?
     var icon: String?
     var precipitation: Double?
@@ -17,8 +20,8 @@ class Weather: NSObject {
     var humidity: Double?
     var windSpeed: Double?
     var windDirection: Double?
-    var providerName: String?
-    var attributionURL: URL?
+    var providerName: String? = Weather.appleWeatherTrademark
+    var attributionURL: URL? = Weather.appleWeatherLegalAttributionURL
 
     override init() {
         super.init()
@@ -32,6 +35,7 @@ class Weather: NSObject {
         self.humidity = current.humidity
         self.windSpeed = current.wind.speed.converted(to: .milesPerHour).value
         self.windDirection = current.wind.direction.converted(to: .degrees).value
-        self.providerName = "Apple Weather"
+        self.providerName = Self.appleWeatherTrademark
+        self.attributionURL = Self.appleWeatherLegalAttributionURL
     }
 }

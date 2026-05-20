@@ -117,11 +117,11 @@ final class ForecastViewModel: NSObject, ObservableObject {
     }
 
     var providerName: String {
-        forecast?.providerName ?? "Weather"
+        forecast?.providerName ?? Weather.appleWeatherTrademark
     }
 
     var attributionURL: URL? {
-        forecast?.attributionURL
+        forecast?.attributionURL ?? Weather.appleWeatherLegalAttributionURL
     }
 
     @objc private func newLocationReceived() {
@@ -185,7 +185,8 @@ final class ForecastViewModel: NSObject, ObservableObject {
         demoForecast.humidity = screenshotDoubleValue(after: "-ForecastScreenshotHumidity") ?? 0.42
         demoForecast.windSpeed = screenshotDoubleValue(after: "-ForecastScreenshotWindSpeed") ?? 9
         demoForecast.windDirection = screenshotDoubleValue(after: "-ForecastScreenshotWindDirection") ?? 245
-        demoForecast.providerName = "Apple Weather"
+        demoForecast.providerName = Weather.appleWeatherTrademark
+        demoForecast.attributionURL = Weather.appleWeatherLegalAttributionURL
 
         forecast = demoForecast
         locationName = screenshotArgumentValue(after: "-ForecastScreenshotLocation") ?? "Asheville, NC"

@@ -165,21 +165,7 @@ struct ForecastView: View {
                     )
                 }
 
-                Button {
-                    if let url = viewModel.attributionURL {
-                        openURL(url)
-                    }
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "cloud.sun.fill")
-                        Text(viewModel.providerName)
-                    }
-                    .font(.footnote.weight(.semibold))
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(ForecastColors.secondaryText)
-                .disabled(viewModel.attributionURL == nil)
-                .padding(.top, 2)
+                attributionLink
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 28)
@@ -189,6 +175,35 @@ struct ForecastView: View {
         } else {
             loadingContent
         }
+    }
+
+    private var attributionLink: some View {
+        Button {
+            if let url = viewModel.attributionURL {
+                openURL(url)
+            }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "cloud.sun.fill")
+                    .accessibilityHidden(true)
+
+                Text(viewModel.providerName)
+
+                Text("Legal Attribution")
+                    .underline()
+            }
+            .font(.footnote.weight(.semibold))
+            .lineLimit(1)
+            .minimumScaleFactor(0.78)
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .foregroundStyle(ForecastColors.secondaryText)
+        .accessibilityLabel("Apple Weather legal attribution")
+        .accessibilityHint("Opens the Apple Weather legal attribution page")
+        .disabled(viewModel.attributionURL == nil)
+        .padding(.top, 2)
     }
 
     private var loadingContent: some View {
